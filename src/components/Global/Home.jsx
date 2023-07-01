@@ -7,13 +7,13 @@ import { Box } from "@mui/material";
 const Home=()=>{
     return(
         <Box display="flex" width="100%" height="100%">
-            <Box display="flex" flexDirection="column" width="25%">
+            <Box display="flex" flexDirection="column" width="19.5%">
                 <Left/>
             </Box>
-            <Box display="flex" width="50%">
+            <Box display="flex" width="60.5%">
                 <Middle/>
             </Box>
-            <Box display="flex" width="25%">
+            <Box display="flex" width="20%">
                 <Right/>
             </Box>
         </Box>
