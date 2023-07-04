@@ -5,7 +5,6 @@ const Middle=()=>{
     return(
         <Box
             width="100%"
-            height="94.7%"
             margin="8px 0 8px 0"
             padding="10px"
             borderRadius="10px"
