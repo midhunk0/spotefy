@@ -44,7 +44,7 @@ const Left = () => {
 
             <Box display="flex" flexDirection="column" borderRadius="10px"  bgcolor="white" sx={{overflow:"auto"}}>
 
-                <Box display="flex" height="10.6%">
+                <Box display="flex" height="10.6%" >
                     <Box display="flex" sx={{ m: 1 }}>
                         <ButtonBase sx={{ width: "157px", gap: 0.5, borderRadius: "20px" }}>
                             <Box sx={{ ...iconStyle, p: 1 }}>
@@ -65,17 +65,19 @@ const Left = () => {
                     </Box>
                 </Box>
 
-                <Box display="flex" m={1} gap={1}>
-                    <Button disableRipple sx={{ background: "lightgray", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }, borderRadius: "20px", color: "black" }}>
-                        <Typography fontWeight="bold" sx={{ textTransform: 'none' }} fontSize="14px">
-                            Playlists
-                        </Typography>
-                    </Button>
-                    <Button disableRipple sx={{ background: "lightgray", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }, borderRadius: "20px", color: "black" }}>
-                        <Typography fontWeight="bold" sx={{ textTransform: 'none' }} fontSize="14px">
-                            Artists
-                        </Typography>
-                    </Button>
+                <Box display="flex">
+                    <Box m="8px" >
+                        <Button disableRipple sx={{ background: "lightgray", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }, borderRadius: "20px", color: "black" }}>
+                            <Typography fontWeight="bold" sx={{ textTransform: 'none' }} fontSize="14px">
+                                Playlists
+                            </Typography>
+                        </Button>
+                        <Button disableRipple sx={{ml:"8px", background: "lightgray", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }, borderRadius: "20px", color: "black" }}>
+                            <Typography fontWeight="bold" sx={{ textTransform: 'none' }} fontSize="14px">
+                                Artists
+                            </Typography>
+                        </Button>
+                    </Box>
                 </Box>
 
                 <Box sx={{ height: '85%', overflow: 'auto' }}>
@@ -85,7 +87,7 @@ const Left = () => {
                                 <HiSearch size="20px" color="black" />
                             </IconButton>
                             <Box display="flex">
-                                <ButtonBase sx={{ borderRadius: "20px" }}>
+                                <ButtonBase disableRipple sx={{ borderRadius: "20px","&:active":{background:"red"} }}>
                                     <Typography fontWeight="bold" sx={{ m: 1 }} fontSize="14px">
                                         Recents
                                     </Typography>
@@ -96,7 +98,7 @@ const Left = () => {
                             </Box>
                         </Box>
                         {data.map((item, index) => (
-                            <Button disableRipple sx={{ height: "65px",textTransform:"none",fontWeight:"bold", background: "lightgray", color: "black", border: "1px solid black", borderRadius: "10px", width: "94%", m: 1, justifyContent: "left", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }}}>
+                            <Button disableRipple sx={{ height: "65px",textTransform:"none",fontWeight:"bold", background: "lightgray", color: "black", border: "1px solid black", borderRadius: "10px", width: "94%", m:"0 8px 8px 8px", justifyContent: "left", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }}}>
                                 {index === 1 && (
                                     <img src={`../../assets/olivia.jpeg`} width="40px" height="40px" style={{ objectFit: 'cover',marginLeft: "5px", borderRadius: "20px" }} alt="olivia"/>
                                 )}
@@ -110,7 +112,7 @@ const Left = () => {
                         ))}
                     </List>
                 </Box>
-                
+
             </Box>
 
         </Box>

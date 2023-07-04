@@ -24,7 +24,7 @@ function App() {
                     <Right/>
                 </Box>
             </Box>
-            <Box>
+            <Box height="10%">
                 <BottomBar/>
             </Box>
             

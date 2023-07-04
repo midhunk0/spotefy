@@ -5,6 +5,7 @@ const BottomBar=()=>{
     return(
         <Box
             margin="0 8px"
+            height="65%"
             padding="10px"
             borderRadius="10px"
             sx={{background:"white",}}
