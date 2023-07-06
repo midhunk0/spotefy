@@ -45,7 +45,7 @@ const Right = () => {
                 </Box>
             </Box>
 
-            <Box mt="15px" position="relative">
+            <Box mt="7px" position="relative">
                 <a href="/olivia" style={{ textDecoration: "none", color: "black" }}>
                     <Box position="absolute" top="8px" left="8px" display="flex" gap="5px">
                         <HiBadgeCheck size="28px" />
