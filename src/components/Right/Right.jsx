@@ -15,7 +15,7 @@ const Right = () => {
         >
             <Box>
                 <a href="/sour" style={{ color: "black", textDecoration: "none" }}>
-                    <Typography variant="h6" fontWeight="bold" sx={{  mt: 2 , mb:1}}>
+                    <Typography variant="h6" fontWeight="bold" sx={{ mt: 2 , mb:1, "&:hover": {textDecoration:"underline"}}}>
                         SOUR
                     </Typography>
                     <img src={`../../assets/olivia.jpeg`} alt="olivia" width="100%" style={{ borderRadius: "10px" }} />
@@ -25,12 +25,12 @@ const Right = () => {
             <Box display="flex">
                 <Box display="flex" flexDirection="column">
                     <a href="/sour" style={{ color: "black", textDecoration: "none" }}>
-                        <Typography fontSize="23px" fontWeight="bolder" sx={{ mt:1, mb: 0.5 }}>
+                        <Typography fontSize="23px" fontWeight="bolder" sx={{ mt:1, mb: 0.5, "&:hover": {textDecoration:"underline"} }}>
                             Drivers licence
                         </Typography>
                     </a>
                     <a href="/olivia" style={{ textDecoration: "none", color: "black" }}>
-                        <Typography fontSize="15px" fontWeight="bold" >
+                        <Typography fontSize="15px" fontWeight="bold" sx={{"&:hover": {textDecoration:"underline"}}}>
                             Olivia Rodrigo
                         </Typography>
                     </a>
@@ -48,7 +48,7 @@ const Right = () => {
             <Box mt="7px" position="relative">
                 <a href="/olivia" style={{ textDecoration: "none", color: "black" }}>
                     <Box position="absolute" top="8px" left="8px" display="flex" gap="5px">
-                        <HiBadgeCheck size="28px" />
+                        <HiBadgeCheck size="28px" color="#0c67d3"/>
                         <Typography>Verified Artist</Typography>
                     </Box>
                     <img src={`../../assets/olivia-profile.jpeg`} alt="olivia" width="100%" style={{ borderRadius: "10px" }} />
@@ -67,7 +67,7 @@ const Right = () => {
                         On Tour
                     </Typography>
                     <a href="/show" style={{textDecoration:"none",color:"white"}}>
-                        <Typography margin="8px" fontSize="16px">
+                        <Typography margin="8px" fontSize="16px" sx={{"&:hover": {textDecoration:"underline"}}}>
                             Show all
                         </Typography>
                     </a>
@@ -94,7 +94,7 @@ const Right = () => {
                         Next in queue
                     </Typography>
                     <a href="/queue" style={{textDecoration:"none",color:"white"}}>
-                        <Typography margin="8px" fontSize="16px">
+                        <Typography margin="8px" fontSize="16px" sx={{"&:hover": {textDecoration:"underline"}}}>
                             Open Queue
                         </Typography>
                     </a>
