@@ -1,5 +1,5 @@
-import React from "react";
-import { HiHome, HiSearch, HiOutlineCollection, HiPlus, HiArrowRight, HiChevronDown } from "react-icons/hi";
+import React, { useState } from "react";
+import { HiHome, HiOutlineHome, HiSearch, HiOutlineCollection, HiPlus, HiArrowRight, HiChevronDown } from "react-icons/hi";
 import { Box, Typography, Button, ButtonBase, List, IconButton } from "@mui/material";
 
 const Left = () => {
@@ -16,14 +16,19 @@ const Left = () => {
         'English','Coldplay', 'Hans Zimmer'
     ];
 
-    return (
-        <Box display="flex" flexDirection="column" margin="8px" gap="8px">
+    const [home, notHome]=useState(true)
 
+    const goToHome=()=>[
+        notHome(!home)
+    ]
+
+    return (
+        <Box display="flex" flexDirection="column" margin="8px" gap="8px" width="100%">
             <Box display="flex" flexDirection="column" borderRadius="10px" bgcolor="white">
-                <a href="/home" style={{ textDecoration: "none", color: "black" }}>
+                <a href="/home" style={{ textDecoration: "none", color: "black" }} onClick={goToHome}>
                     <Box display="flex" sx={{ m: 1, gap: 1 }}>
                         <Box sx={{ ...iconStyle, p: 1 }}>
-                            <HiHome size="25px" />
+                            { home ? <HiHome size="25px" /> : <HiOutlineHome size="25px" /> }
                         </Box>
                         <Typography variant="h6" fontWeight="bold" sx={{ m: 0.5 }}>
                             Home
@@ -41,12 +46,10 @@ const Left = () => {
                     </Box>
                 </a>
             </Box>
-
             <Box display="flex" flexDirection="column" borderRadius="10px"  bgcolor="white" sx={{overflow:"auto"}}>
-
                 <Box display="flex" height="10.6%" >
                     <Box display="flex" sx={{ m: 1 }}>
-                        <ButtonBase sx={{ width: "157px", gap: 0.5, borderRadius: "20px" }}>
+                        <ButtonBase disableRipple sx={{ width: "157px", gap: 0.5, borderRadius: "20px" }}>
                             <Box sx={{ ...iconStyle, p: 1 }}>
                                 <HiOutlineCollection size="25px" color="black" />
                             </Box>
@@ -64,7 +67,6 @@ const Left = () => {
                         </IconButton>
                     </Box>
                 </Box>
-
                 <Box display="flex">
                     <Box m="8px" >
                         <Button disableRipple sx={{ background: "lightgray", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }, borderRadius: "20px", color: "black" }}>
@@ -79,7 +81,6 @@ const Left = () => {
                         </Button>
                     </Box>
                 </Box>
-
                 <Box sx={{ height: '85%', overflow: 'auto' }}>
                     <List sx={{ padding: 0 }}>
                         <Box display="flex" sx={{ m: 1, gap: 16.8 }}>
@@ -112,9 +113,7 @@ const Left = () => {
                         ))}
                     </List>
                 </Box>
-
             </Box>
-
         </Box>
     )
 }

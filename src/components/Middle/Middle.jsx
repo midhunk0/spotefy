@@ -5,7 +5,7 @@ const Middle=()=>{
     return(
         <Box
             width="100%"
-            margin="8px 0 8px 0"
+            margin="8px 8px 8px 0"
             padding="10px"
             borderRadius="10px"
             sx={{background:"white",}}

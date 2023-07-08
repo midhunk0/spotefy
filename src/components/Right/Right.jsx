@@ -1,18 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Button, IconButton, Typography } from "@mui/material";
 import { HiHeart, HiBadgeCheck, HiDotsHorizontal } from "react-icons/hi";
 
 const Right = () => {
+    const [showRightbar, notShowRightbar] =useState(false)
+
+    const rightbarToggle=()=>{
+        notShowRightbar(!showRightbar)
+    }
     return (
-        <Box
-            margin="8px"
-            width="100%"
-            padding="8px"
-            borderRadius="10px"
-            display="flex"
-            flexDirection="column"
-            sx={{ background: "white", overflow: "auto" }}
-        >
+        <Box margin="8px 8px 8px 0" width="100%" padding="8px" borderRadius="10px" display="flex" flexDirection="column" sx={{ background: "white", overflow: "auto" }}>
             <Box>
                 <a href="/sour" style={{ color: "black", textDecoration: "none" }}>
                     <Typography variant="h6" fontWeight="bold" sx={{ mt: 2 , mb:1, "&:hover": {textDecoration:"underline"}}}>
@@ -21,7 +18,6 @@ const Right = () => {
                     <img src={`../../assets/olivia.jpeg`} alt="olivia" width="100%" style={{ borderRadius: "10px" }} />
                 </a>
             </Box>
-
             <Box display="flex">
                 <Box display="flex" flexDirection="column">
                     <a href="/sour" style={{ color: "black", textDecoration: "none" }}>
@@ -44,7 +40,6 @@ const Right = () => {
                     </IconButton>
                 </Box>
             </Box>
-
             <Box mt="7px" position="relative">
                 <a href="/olivia" style={{ textDecoration: "none", color: "black" }}>
                     <Box position="absolute" top="8px" left="8px" display="flex" gap="5px">
@@ -60,7 +55,6 @@ const Right = () => {
                     </Box>
                 </a>
             </Box>
-
             <Box bgcolor="black"  display="flex" flexDirection="column" borderRadius="10px" margin="8px 0 1px 0">
                 <Box display="flex" marginTop="8px" justifyContent="space-between">
                     <Typography color="white" margin="8px" fontSize="16px" >
@@ -87,7 +81,6 @@ const Right = () => {
                     </Button>
                 </Box>
             </Box>
-
             <Box bgcolor="black"  display="flex" flexDirection="column" borderRadius="10px" margin="8px 0 1px 0">
                 <Box display="flex" marginTop="8px" justifyContent="space-between">
                     <Typography color="white" margin="8px" fontSize="16px" >
@@ -108,7 +101,6 @@ const Right = () => {
                     </Button>
                 </Box>
             </Box>
-
         </Box>
     );
 };
