@@ -12,8 +12,7 @@ function App() {
         setRight(!right)
     }
     return(
-        <Box 
-            className="app" display="flex" flexDirection="column" sx={{ background: "black" }}>
+        <Box className="app" display="flex" flexDirection="column" sx={{ background: "black" }}>
             <Box height="90%" display="flex">
                 <Box display="flex" width="19.5%">
                     <Left/>

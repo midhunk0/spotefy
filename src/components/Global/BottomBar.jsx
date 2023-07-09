@@ -83,7 +83,11 @@ const BottomBar=({toggleRight})=>{
                     </IconButton>
                     {/* connect to device */}
                     <IconButton onClick={volumeToggle}>
-                        {volumeOn ? <HiOutlineVolumeUp color="black"/> : <HiOutlineVolumeOff color="black"/>}
+                        {
+                            volumeOn
+                            ? <HiOutlineVolumeUp color="black"/>
+                            : <HiOutlineVolumeOff color="black"/> 
+                        }
                     </IconButton>
                     {/* volume controller */}
                 </Box>
