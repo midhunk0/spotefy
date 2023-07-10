@@ -8,31 +8,25 @@ const BottomBar=({toggleRight})=>{
     const [liked, setLiked]=useState(false)
     const [right, setRight]=useState(false)
     const [lyrics, setLyrics]=useState(false)
-
     const volumeToggle=()=>{
         volumeOff(!volumeOn)
     }
-
     const playToggle=()=>{
         pause(!play)
     }
-
     const likeToggle=()=>{
         setLiked(!liked)
     }
-
     const rightToggle=()=>{
         setRight(!right)
         toggleRight()
     }
-
     const lyricsToggle=()=>{
         setLyrics(!lyrics)
     }
-
     return(
         <Box margin="0 8px" height="65%" padding="10px" borderRadius="10px" sx={{background:"white",}} display="flex" gap="10px">
-            <Box display="flex" width="30%" border="1px solid black">
+            <Box display="flex" width="30%">
                 <img src={`../../assets/olivia.jpeg`} width="55px" style={{alignItems:"center", borderRadius: "10px" }} alt="olivia"/>
                 <Box display="flex" flexDirection="column" >
                     <a href="/happier" style={{color:"black",textDecoration:"none"}}>
@@ -52,8 +46,9 @@ const BottomBar=({toggleRight})=>{
                     </IconButton>
                 </Box>
             </Box>
-            <Box display="flex" flexDirection="column" width="40%" justifyContent="center" alignItems="center" border="1px solid black">
-                <Box display="flex" border="1px solid black"  justifyContent="space-around" gap="10px">
+
+            <Box display="flex" flexDirection="column" width="40%" justifyContent="center" alignItems="center" >
+                <Box display="flex"   justifyContent="space-around" gap="10px">
                     {/* shuffle */}
                     <IconButton >
                         <HiRewind color="black"/>
@@ -70,8 +65,9 @@ const BottomBar=({toggleRight})=>{
                     {/* music player */}
                 </Box>
             </Box>
-            <Box border="1px solid black" display="flex" width="30%" justifyContent="center" alignItems="center">
-                <Box display="flex" border="1px solid black" justifyContent="space-around" gap="10px">
+
+            <Box  display="flex" width="30%" justifyContent="center" alignItems="center">
+                <Box display="flex" justifyContent="space-around" gap="10px">
                     <IconButton onClick={rightToggle}>
                         {right ? <HiOutlineViewGrid color="green" /> : <HiOutlineViewGridAdd color="black" />}
                     </IconButton>

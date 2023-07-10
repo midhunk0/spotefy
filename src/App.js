@@ -7,17 +7,20 @@ import BottomBar from "./components/Global/BottomBar"
 
 function App() {
     const [right, setRight]=useState(false)
-        
+    const [left, setLeft]=useState(false);        
     const toggleRight=()=>{
         setRight(!right)
+    }
+    const toggleLeft=()=>{
+        setLeft(!left)
     }
     return(
         <Box className="app" display="flex" flexDirection="column" sx={{ background: "black" }}>
             <Box height="90%" display="flex">
                 <Box display="flex" width="19.5%">
-                    <Left/>
+                    <Left toggleLeft={toggleLeft}/>
                 </Box>
-                <Box display="flex" width={right ? "60.5%" : "80.5%"}>
+                <Box display="flex" width={right ? "60.5%" : "80.5%" } >
                     <Middle/>
                 </Box>
                 {right && (
