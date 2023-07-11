@@ -61,23 +61,20 @@ const useStyles = makeStyles(() => ({
   content: {
     display: 'flex',
     flex: 1,
-    overflow: 'hidden',
+    marginTop:-20
   },
   left: {
     flex: '0 0 auto',
     minWidth: '10px',
-    transition: 'width 0.3s ease',
-    marginTop:-20
   },
   middle: {
     flex: 1,
     minWidth: '10px',
-    marginTop:-20
   },
   right: {
     flex: '0 0 auto',
     minWidth: '10px',
-    marginTop:-20
+    // marginTop:-20
   },
   adjuster: {
     cursor: 'ew-resize',
@@ -87,7 +84,6 @@ const useStyles = makeStyles(() => ({
   bottom: {
     flexShrink: 0,
     marginTop:-20
-
   },
 }));
 
@@ -109,9 +105,10 @@ const App = () => {
   };
 
   const handleLeftResize = (event) => {
-    const newLeftWidth = `${event.clientX}px`;
+    const newLeftWidth = `${Math.max(event.clientX, window.innerWidth * 0.05)}px`;
     setLeftWidth(newLeftWidth);
   };
+  
 
   const handleRightResize = (event) => {
     const newRightWidth = `${window.innerWidth - event.clientX}px`;
