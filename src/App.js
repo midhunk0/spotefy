@@ -64,20 +64,20 @@ const useStyles = makeStyles(() => ({
     marginTop:-20
   },
   left: {
-    flex: '0 0 auto',
-    minWidth: '10px',
+    // flex: '0 0 auto',
+    minWidth: "5%",
+    maxWidth: "40%"
   },
   middle: {
     flex: 1,
-    minWidth: '10px',
   },
   right: {
-    flex: '0 0 auto',
-    minWidth: '10px',
-    // marginTop:-20
+    // flex: '0 0 auto',
+    minWidth: "20%",
+    maxWidth: "30%"
   },
   adjuster: {
-    cursor: 'ew-resize',
+    cursor: 'col-resize',
     width: '5px',
     backgroundColor: 'lightgray',
   },
@@ -92,7 +92,6 @@ const App = () => {
   const [showRight, setShowRight] = useState(false);
   const [leftWidth, setLeftWidth] = useState('20%');
   const [rightWidth, setRightWidth] = useState('20%');
-  const leftMinWidth = '5%';
 
   const toggleRight = () => {
     setShowRight(!showRight);
@@ -100,12 +99,12 @@ const App = () => {
 
   const toggleLeft = () => {
     setLeftWidth((prevWidth) =>
-      prevWidth === leftMinWidth ? '20%' : leftMinWidth
+      prevWidth === "5%" ? "20%" : "5%"
     );
   };
 
   const handleLeftResize = (event) => {
-    const newLeftWidth = `${Math.max(event.clientX, window.innerWidth * 0.05)}px`;
+    const newLeftWidth = `${event.clientX}px`;
     setLeftWidth(newLeftWidth);
   };
   
