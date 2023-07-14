@@ -1,127 +1,134 @@
-// import React, { useState } from "react";
-// import { Box, Button, IconButton, Typography } from "@mui/material";
-// import { HiHeart, HiBadgeCheck, HiDotsHorizontal } from "react-icons/hi";
+import React, { useState } from 'react';
+import { Box, Button, IconButton, Link, Typography } from '@mui/material';
+import { HiBadgeCheck, HiChevronRight, HiDotsHorizontal, HiHeart, HiOutlineHeart, HiMusicNote, HiX } from "react-icons/hi";
 
-// const Right = () => {
-//     const [showRightbar, notShowRightbar] =useState(false)
-//     const rightbarToggle=()=>{
-//         notShowRightbar(!showRightbar)
-//     }
-//     return (
-//         <Box margin="8px 8px 8px 0" width="100%" padding="8px" borderRadius="10px" display="flex" flexDirection="column" sx={{ background: "white", overflow: "auto" }}>
-//             <Box>
-//                 <a href="/sour" style={{ color: "black", textDecoration: "none" }}>
-//                     <Typography variant="h6" fontWeight="bold" sx={{ mt: 2 , mb:1, "&:hover": {textDecoration:"underline"}}}>
-//                         SOUR
-//                     </Typography>
-//                     <img src={`../../assets/olivia.jpeg`} alt="olivia" width="100%" style={{ borderRadius: "10px" }} />
-//                 </a>
-//             </Box>
+const Right=({toggleRightWidth})=>{
+    const [isHovered, setIsHovered]=useState(false);
+    const [liked, notLiked]=useState(false);
 
-//             <Box display="flex">
-//                 <Box display="flex" flexDirection="column">
-//                     <a href="/sour" style={{ color: "black", textDecoration: "none" }}>
-//                         <Typography fontSize="23px" fontWeight="bolder" sx={{ mt:1, mb: 0.5, "&:hover": {textDecoration:"underline"} }}>
-//                             Drivers licence
-//                         </Typography>
-//                     </a>
-//                     <a href="/olivia" style={{ textDecoration: "none", color: "black" }}>
-//                         <Typography fontSize="15px" fontWeight="bold" sx={{"&:hover": {textDecoration:"underline"}}}>
-//                             Olivia Rodrigo
-//                         </Typography>
-//                     </a>
-//                 </Box>
-//                 <Box display="flex" sx={{ ml: 0.5, gap: 1, alignItems: "center" }}>
-//                     <IconButton>
-//                         <HiHeart size="20px" color="black" />
-//                     </IconButton>
-//                     <IconButton>
-//                         <HiDotsHorizontal size="20px" color="black" />
-//                     </IconButton>
-//                 </Box>
-//             </Box>
+    const setLiked=()=>{
+        notLiked(!liked)
+    }
 
-//             <Box mt="7px" position="relative">
-//                 <a href="/olivia" style={{ textDecoration: "none", color: "black" }}>
-//                     <Box position="absolute" top="8px" left="8px" display="flex" gap="5px">
-//                         <HiBadgeCheck size="28px" color="#0c67d3"/>
-//                         <Typography>Verified Artist</Typography>
-//                     </Box>
-//                     <img src={`../../assets/olivia-profile.jpeg`} alt="olivia" width="100%" style={{ borderRadius: "10px" }} />
-//                     <Box position="absolute" bottom="8px" left="8px" display="flex" flexDirection="column">
-//                         <Typography>100,000,000 monthly listeners</Typography>
-//                         <p>
-//                             Lorem ipsum, dolor sit amet consectetur adipisicing elit....
-//                         </p>
-//                     </Box>
-//                 </a>
-//             </Box>
+    return (
+        <Box display="flex" flexDirection="column" bgcolor="white" borderRadius="10px" margin="8px 8px 8px 0" padding="8px" overflow="auto">
+            <Box>
+                <Box display="flex" justifyContent="space-between">
+                    <Link href="/sour" sx={{textDecoration:"none"}}>
+                        <Typography color="black" variant="h6" fontWeight="bold" marginTop="20px" marginBottom="10px" sx={{"&:hover":{textDecoration:"underline"}}}>
+                            SOUR    
+                        </Typography>
+                    </Link>
+                    <IconButton onClick={toggleRightWidth} style={{marginTop:"16px",borderRadius:"20px", height:"40px", width:"40px"}}>
+                        <HiX size="20px" color="black"/>
+                    </IconButton>
+                </Box>
+                <Link href="/sour">
+                    <img src={`../../assets/olivia.jpeg`} alt="olivia" width="100%" style={{ borderRadius: "10px" }} />
+                </Link>
+            </Box>
 
-//             <Box bgcolor="black"  display="flex" flexDirection="column" borderRadius="10px" margin="8px 0 1px 0">
-//                 <Box display="flex" marginTop="8px" justifyContent="space-between">
-//                     <Typography color="white" margin="8px" fontSize="16px" >
-//                         On Tour
-//                     </Typography>
-//                     <a href="/show" style={{textDecoration:"none",color:"white"}}>
-//                         <Typography margin="8px" fontSize="16px" sx={{"&:hover": {textDecoration:"underline"}}}>
-//                             Show all
-//                         </Typography>
-//                     </a>
-//                 </Box>
-//                 <Box mt="15px">
-//                     <Button disableRipple sx={{ height: "65px",textTransform:"none",fontWeight:"bold", background: "lightgray", color: "black", border: "1px solid black", borderRadius: "10px", width: "94%", m:"0 8px 8px 8px", justifyContent: "left", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }}}>
-//                         <img src={`../../assets/liked.png`} width="40px" height="40px" style={{ marginLeft: "5px", borderRadius: "10px" }} alt="liked"/>
-//                         <Typography fontSize="15px" fontWeight="bold" sx={{alignItems:"center", ml:1.5}}>
-//                             Las Vegas
-//                         </Typography>
-//                     </Button>
-//                     <Button disableRipple sx={{ height: "65px",textTransform:"none",fontWeight:"bold", background: "lightgray", color: "black", border: "1px solid black", borderRadius: "10px", width: "94%", m:"0 8px 8px 8px", justifyContent: "left", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }}}>
-//                         <img src={`../../assets/liked.png`} width="40px" height="40px" style={{ marginLeft: "5px", borderRadius: "10px" }} alt="liked"/>
-//                         <Typography fontSize="15px" fontWeight="bold" sx={{alignItems:"center", ml:1.5}}>
-//                             Amsterdam
-//                         </Typography>
-//                     </Button>
-//                 </Box>
-//             </Box>
-            
-//             <Box bgcolor="black"  display="flex" flexDirection="column" borderRadius="10px" margin="8px 0 1px 0">
-//                 <Box display="flex" marginTop="8px" justifyContent="space-between">
-//                     <Typography color="white" margin="8px" fontSize="16px" >
-//                         Next in queue
-//                     </Typography>
-//                     <a href="/queue" style={{textDecoration:"none",color:"white"}}>
-//                         <Typography margin="8px" fontSize="16px" sx={{"&:hover": {textDecoration:"underline"}}}>
-//                             Open Queue
-//                         </Typography>
-//                     </a>
-//                 </Box>
-//                 <Box mt="15px">
-//                     <Button disableRipple sx={{ height: "65px",textTransform:"none",fontWeight:"bold", background: "lightgray", color: "black", border: "1px solid black", borderRadius: "10px", width: "94%", m:"0 8px 8px 8px", justifyContent: "left", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }}}>
-//                         <img src={`../../assets/olivia.jpeg`} width="40px" height="40px" style={{ objectFit: 'cover',marginLeft: "5px", borderRadius: "20px" }} alt="olivia"/>
-//                         <Typography fontSize="15px" fontWeight="bold" sx={{alignItems:"center", ml:1.5}}>
-//                             Happier
-//                         </Typography>
-//                     </Button>
-//                 </Box>
-//             </Box>
-//         </Box>
-//     );
-// };
+            <Box display="flex" justifyContent="space-between">
+                <Box display="flex" flexDirection="column">
+                    <Link href="/sour" sx={{textDecoration:"none"}}>
+                        <Typography fontSize="23px" fontWeight="bolder" color="black" marginTop="10px" marginBottom="5px" sx={{ "&:hover":{textDecoration:"underline"}}}> 
+                            Drivers licence
+                        </Typography>
+                    </Link>
+                    <Link href="/olivia" sx={{textDecoration:"none"}}>
+                        <Typography fontSize="15px" fontWeight="bold" color="black" sx={{"&:hover":{textDecoration:"underline"}}}>
+                            Olivia Rodrigo
+                        </Typography>
+                    </Link>
+                </Box>
+                <Box display="flex" alignItems="center">
+                    <IconButton onClick={setLiked}>
+                        {liked 
+                            ? (<HiHeart size="20px" color="green"/>)
+                            : (<HiOutlineHeart size="20px" color="black"/>)   
+                        }
+                    </IconButton>
+                    <IconButton>
+                        <HiDotsHorizontal size="20px" color="black"/>
+                    </IconButton>
+                </Box>
+            </Box>
 
-// export default Right;
+            <Box marginTop="8px" position="relative">
+                <Link href="/olivia" sx={{textDecoration:"none"}}>
+                    <Box display="flex" position="absolute" top="8px" left="8px" gap="5px">
+                        <HiBadgeCheck size="28px" color="#0c67d3"/>
+                        <Typography>Verified Artist</Typography>
+                    </Box>
+                    <img src={`../../assets/olivia-profile.jpeg`} alt="olivia" width="100%" height="100%" style={{ borderRadius: "10px" }} />
+                    <Box display="flex" flexDirection="column" position="absolute" bottom="8px" left="8px" color="black">
+                        <Typography>100,000,000 monthly listeners</Typography>
+                        <p style={{marginBottom:"0"}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At expedita hic quod quos.... </p>
+                    </Box>
+                </Link>
+            </Box>
 
+            <Box display="flex" flexDirection="column" bgcolor="black" borderRadius="10px" margin="8px 0 0 0">
+                <Box display="flex" justifyContent="space-between">
+                    <Typography fontSize="16px" fontWeight="bolder" margin="8px" color="white">
+                        On Tour
+                    </Typography>
+                    <Link href="/show" sx={{textDecoration:"none"}}>
+                        <Typography fontSize="16px" fontWeight="bold" margin="8px" color="white" sx={{"&:hover":{textDecoration:"underline"}}}>
+                            Show all
+                        </Typography>
+                    </Link>
+                </Box>
+                <Box>
+                    <Button disableRipple sx={{ height: "65px",textTransform:"none",fontWeight:"bold", borderRadius: "10px", width: "calc(100% - 16px)", margin:"0 8px 8px 8px", justifyContent: "left", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }}}>
+                        <Box display="flex" flexDirection="column" width="49px" height="49px" color="black" bgcolor="lightgray" borderRadius="10px">
+                            <Typography>Aug</Typography>
+                            <Typography>17</Typography>
+                        </Box>
+                        <Typography fontSize="15px" fontWeight="bold" color="white" sx={{alignItems:"center", marginLeft:"15px"}}>
+                            Las Vegas
+                        </Typography>
+                    </Button>
+                    <Button disableRipple sx={{ height: "65px",textTransform:"none",fontWeight:"bold", borderRadius: "10px", width: "calc(100% - 16px)", margin:"0 8px 8px 8px", justifyContent: "left", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }}}>
+                        <Box display="flex" flexDirection="column" width="49px" height="49px" color="black" bgcolor="lightgray" borderRadius="10px">
+                            <Typography>Aug</Typography>
+                            <Typography>25</Typography>
+                        </Box>
+                        <Typography fontSize="15px" fontWeight="bold" color="white" sx={{alignItems:"center", marginLeft:"15px"}}>
+                            Amsterdam
+                        </Typography>
+                    </Button>
+                </Box>
+            </Box>
 
-
-
-import React from 'react';
-import { Box } from '@mui/material';
-
-const Right = () => {
-  return (
-    <Box bgcolor="lightpink" height="100%">
-      <h2>R</h2>
-    </Box>
-  );
+            <Box display="flex" flexDirection="column" bgcolor="black" borderRadius="10px" margin="8px 0 0 0">
+                <Box display="flex" justifyContent="space-between">
+                    <Typography fontSize="16px" fontWeight="bolder" margin="8px" color="white">
+                        Next in queue
+                    </Typography>
+                    <Link href="/queue" sx={{textDecoration:"none"}}>
+                        <Typography fontSize="16px" fontWeight="bold" margin="8px" color="white" sx={{"&:hover":{textDecoration:"underline"}}}>
+                            Open queue
+                        </Typography>
+                    </Link>
+                </Box>     
+                <Box>
+                    <Button disableRipple sx={{ height: '65px', textTransform: 'none', fontWeight: 'bold', width:"calc(100% - 16px)", borderRadius: '10px',  margin: '8px', justifyContent: 'left', '&:hover': { background: 'gray', color: 'white' }, '&:active': { background: 'black', transition: 'background .7s' } }} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} >
+                        {!isHovered && (
+                            <HiMusicNote size="20px" color="white" style={{ marginRight: '8px' }} />
+                        )}
+                        {isHovered && (
+                            <HiChevronRight size="20px" color="white" style={{ marginRight: '8px' }} />
+                        )}
+                        <img src="../../assets/olivia.jpeg" width="49px" height="49px" style={{ objectFit: 'cover', borderRadius: '10px' }} alt="olivia" />
+                        <Typography fontSize="15px" fontWeight="bold" color="white" sx={{ alignItems: 'center', marginLeft: '15px' }}>
+                            Happier
+                        </Typography>
+                    </Button>   
+                </Box>       
+            </Box>
+        </Box>
+    );
 };
 
 export default Right;

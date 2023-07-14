@@ -1,187 +1,52 @@
-// import React, { useState } from "react";
-// import { HiHome, HiOutlineHome, HiSearch, HiOutlineCollection,HiCollection, HiPlus, HiArrowRight, HiChevronDown } from "react-icons/hi";
-// import { Box, Typography, Button, ButtonBase, List, IconButton } from "@mui/material";
-
-// const Left = ({toggleLeft}) => {
-//     const data = [
-//         'Liked Songs', 'Olivia Rodrigo', 'Hindi', 'Malayalam',
-//         'English', 'Coldplay', 'Hans Zimmer', 'Olivia Rodrigo',
-//         'Hindi', 'Malayalam', 'English', 'Coldplay', 'Hans Zimmer',
-//     ];
-//     const [home, setHome] = useState(true);
-//     const [left, setLeft] = useState(true);
-//     const goToHome = () => {
-//         setHome(true);
-//     };
-//     const leftToggle = () => {
-//         setLeft(!left);
-//         toggleLeft()
-//     };
-//     return (
-//         <Box display="flex" >
-//             {left ? (
-//                 <Box display="flex" flexDirection="column" margin="8px" gap="8px">
-//                     <Box display="flex" flexDirection="column" borderRadius="10px" bgcolor="white">
-//                         <a href="/home" style={{ textDecoration: "none", color: "black" }}>
-//                             <Box display="flex" sx={{ m: 1, gap: 1 }}>
-//                                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '25px', height: '25px', p: 1 }}>
-//                                     {home ? <HiHome size="25px" /> : <HiOutlineHome size="25px" />}
-//                                 </Box>
-//                                 <Typography variant="h6" fontWeight="bold" sx={{ m: 0.5 }}>
-//                                     Home
-//                                 </Typography>
-//                             </Box>
-//                         </a>
-//                         <a href="/search" style={{ textDecoration: "none", color: "black" }}>
-//                             <Box display="flex" sx={{ m: 1, gap: 1 }}>
-//                                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '25px', height: '25px', p: 1 }}>
-//                                     <HiSearch size="25px" />
-//                                 </Box>
-//                                 <Typography variant="h6" fontWeight="bold" sx={{ m: 0.5 }}>
-//                                     Search
-//                                 </Typography>
-//                             </Box>
-//                         </a>
-//                     </Box>
-
-//                     <Box display="flex" flexDirection="column" borderRadius="10px" bgcolor="white" sx={{ overflow: "auto" }} >
-
-//                         <Box display="flex" height="10.6%">
-//                             <Box display="flex" sx={{ m: 1 }}>
-//                                 <ButtonBase disableRipple sx={{ width: "157px", gap: 0.5, borderRadius: "20px" }} onClick={leftToggle}>
-//                                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '25px', height: '25px', p: 1 }}>
-//                                         <HiOutlineCollection size="25px" color="black" />
-//                                     </Box>
-//                                     <Typography fontWeight="bold" sx={{ m: 1 }}>
-//                                         Your Library
-//                                     </Typography>
-//                                 </ButtonBase>
-//                             </Box>
-//                             <Box display="flex" sx={{ m: 1, ml: 2.7, gap: 1, alignItems: "center" }}>
-//                                 <IconButton>
-//                                     <HiPlus size="20px" color="black" />
-//                                 </IconButton>
-//                                 <IconButton>
-//                                     <HiArrowRight size="20px" color="black" />
-//                                 </IconButton>
-//                             </Box>
-//                         </Box>
-
-//                         <Box display="flex">
-//                             <Box m="8px" >
-//                                 <Button disableRipple sx={{ background: "lightgray", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }, borderRadius: "20px", color: "black" }}>
-//                                     <Typography fontWeight="bold" sx={{ textTransform: 'none' }} fontSize="14px">
-//                                         Playlists
-//                                     </Typography>
-//                                 </Button>
-//                                 <Button disableRipple sx={{ ml: "8px", background: "lightgray", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }, borderRadius: "20px", color: "black" }}>
-//                                     <Typography fontWeight="bold" sx={{ textTransform: 'none' }} fontSize="14px">
-//                                         Artists
-//                                     </Typography>
-//                                 </Button>
-//                             </Box>
-//                         </Box>
-
-//                         <Box sx={{ height: '85%', overflow: 'auto' }}>
-//                             <List sx={{ padding: 0 }}>
-//                                 <Box display="flex" sx={{ m: 1, gap: 16.8 }}>
-//                                     <IconButton>
-//                                         <HiSearch size="20px" color="black" />
-//                                     </IconButton>
-//                                     <Box display="flex">
-//                                         <ButtonBase disableRipple sx={{ borderRadius: "20px", "&:active": { background: "red" } }}>
-//                                             <Typography fontWeight="bold" sx={{ m: 1 }} fontSize="14px">
-//                                                 Recents
-//                                             </Typography>
-//                                             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '25px', height: '25px' }}>
-//                                                 <HiChevronDown size="20px" color="black" />
-//                                             </Box>
-//                                         </ButtonBase>
-//                                     </Box>
-//                                 </Box>
-//                                 {data.map((item, index) => (
-//                                     <Button key={index} disableRipple sx={{ height: "60px", textTransform: "none", fontWeight: "bold", background: "lightgray", color: "black", borderRadius: "10px", width: "94%", m: "0 8px 8px 8px", justifyContent: "left", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }}}>
-//                                         {index === 1 ? (
-//                                             <img src={`../../assets/olivia.jpeg`} width="60px" height="60px" style={{ objectFit: 'cover',marginLeft:"-8px", borderRadius: "10px" }} alt="olivia"/>
-//                                         ) : (
-//                                             <img src={`../../assets/liked.png`} width="60px" style={{marginLeft:"-8px", borderRadius: "10px" }} alt="liked" />
-//                                         )}
-//                                         <Box alignItems="center" ml={1.5}>
-//                                             {item}
-//                                         </Box>
-//                                     </Button>
-//                                 ))}
-//                             </List>
-//                         </Box>  
-//                     </Box>
-//                 </Box>
-//             ) : (
-//                 <Box  display="flex" flexDirection="column" margin="8px" gap="8px" width="25%">
-//                     <Box display="flex" flexDirection="column" borderRadius="10px"  bgcolor="white">
-//                         <a href="/home" style={{ textDecoration: "none", color: "black" }} onClick={goToHome}>
-//                             <Box display="flex" sx={{ m: 1, gap: 1 }}>
-//                                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center',  p: 1 }}>
-//                                     {home ? <HiHome size="25px" /> : <HiOutlineHome size="25px" />}
-//                                 </Box>
-//                             </Box>
-//                         </a>
-//                         <a href="/search" style={{ textDecoration: "none", color: "black" }}>
-//                             <Box display="flex" sx={{ m: 1, gap: 1 }}>
-//                                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '25px', height: '25px', p: 1 }}>
-//                                     <HiSearch size="25px" />
-//                                 </Box>
-//                             </Box>
-//                         </a>
-//                     </Box>
-
-//                     <Box display="flex" flexDirection="column" borderRadius="10px" bgcolor="white" sx={{ overflow: "auto" }}>
-//                         <Box display="flex" height="10.6%">
-//                             <Box display="flex" sx={{ m: 1 }}>
-//                                 <ButtonBase disableRipple  onClick={leftToggle}>
-//                                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '25px', height: '25px', p: 1 }}>
-//                                         <HiCollection size="25px" color="black" />
-//                                     </Box>
-//                                 </ButtonBase>
-//                             </Box>
-//                         </Box>
-//                         <Box sx={{ height: '100%', overflow: 'auto', overflowX: 'hidden' }}>
-//                             <List sx={{ padding: 0 }}>
-//                                 {data.map((item, index) => (
-//                                     <Button key={index} disableRipple sx={{ height: "60px", borderRadius: "10px", m:"0 8px 8px" }} >
-//                                         {index === 1 ? (
-//                                             <img src={`../../assets/olivia.jpeg`} width="60px" height="60px" style={{marginLeft:"-8px", objectFit: 'cover', borderRadius: "10px" }} alt="olivia" />
-//                                         ) : (
-//                                             <img src={`../../assets/liked.png`} width="60px" style={{ marginLeft:"-8px", borderRadius: "10px" }} alt="liked" />
-//                                         )}
-//                                     </Button>
-//                                 ))}
-//                             </List>
-//                         </Box>
-//                     </Box>
-//                 </Box>
-//             )}
-//         </Box>
-//     );
-// };
-
-// export default Left;
-
-
-
-
-
-
-
 import React from 'react';
-import { Box, Button } from '@mui/material';
+import { Box,  ButtonBase, Link, Typography } from '@mui/material';
+import { HiHome, HiOutlineCollection, HiSearch } from 'react-icons/hi';
 
-const Left = ({ toggleLeftWidth }) => {
-  return (
-    <Box bgcolor="lightblue" height="100%">
-      <h2>L</h2>
-      <Button onClick={toggleLeftWidth}>T</Button>
-    </Box>
-  );
+const Left=({ toggleLeftWidth })=>{
+    const data=[
+        'Liked Songs', 'Olivia Rodrigo', 'Hindi', 'Malayalam',
+        'English', 'Coldplay', 'Hans Zimmer', 'Tamil',
+        'Imagine Dragons', 'Arctic Monkeys', 'Taylor Swift', 'Harry Styles',
+    ];
+    return (
+        <Box display="flex" flexDirection="column" width="100%" margin="8px 0 8px 8px" gap="8px">
+            <Box display="flex" flexDirection="column" bgcolor="white" borderRadius="10px">
+                <Link href="/home" color="#000" sx={{textDecoration:"none"}}>
+                    <Box display="flex" margin="8px" gap="1px">
+                        <Box display="flex" width="25px" height="25px" padding="10px">
+                            <HiHome size="25px"/>
+                        </Box>
+                        <Typography variant="h6" fontWeight="bold" margin="4px" padding="2px" justifyContent="center">
+                            Home
+                        </Typography>
+                    </Box>
+                </Link>
+                <Link href="/search" color="#000" sx={{textDecoration:"none"}}>
+                    <Box display="flex" margin="8px" gap="1px">
+                        <Box display="flex" width="25px" height="25px" padding="10px">
+                            <HiSearch size="25px"/>
+                        </Box>
+                        <Typography variant="h6" fontWeight="bold" margin="4px" padding="2px" justifyContent="center">
+                            Search
+                        </Typography>
+                    </Box>
+                </Link>
+            </Box>
+
+            <Box display="flex" flexDirection="column" bgcolor="white" borderRadius="10px">
+                <Box display="flex" margin="8px">
+                    <ButtonBase disableRipple sx={{gap:"1px", width:"100%", justifyContent:"flex-start"}}>
+                        <Box display="flex" width="25px" height="25px" padding="10px">
+                            <HiOutlineCollection size="25px" color="black"/>
+                        </Box>
+                        <Typography variant='h6' fontWeight="bold" margin="4px" padding="2px">
+                            Your Library
+                        </Typography>
+                    </ButtonBase>
+                </Box>
+            </Box>
+        </Box>
+    );
 };
 
 export default Left;
