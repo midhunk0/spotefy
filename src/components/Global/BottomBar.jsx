@@ -32,8 +32,8 @@ const Bottom=({toggleRight})=>{
 
     return(
         <Box display="flex" bgcolor="white" borderRadius="10px" width="100%" margin="0 8px 8px 8px" padding="8px">
-            <Box display="flex" width="30%">
-                <img src={`../../assets/olivia.jpeg`} alt="olivia" width="56px" height="56px" style={{borderRadius:"10px"}}/>
+            <Box display="flex" width="30%" alignItems="center">
+                <img src={`../../assets/olivia.jpeg`} alt="olivia" width="56px" height="56px" style={{borderRadius:"10px", marginLeft:"8px"}}/>
                 <Box display="flex" flexDirection="column" justifyContent="center">
                     <Link href="/happier" sx={{textDecoration:"none"}}>
                         <Typography fontSize="18px" fontWeight="bold" color="black" marginLeft="10px" sx={{"&:hover":{textDecoration:"underline"}}}>
