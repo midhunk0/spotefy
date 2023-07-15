@@ -16,13 +16,25 @@ const App = () => {
 
     const toggleLeft = () => {
         setLeftWidth((prevWidth) =>
-        prevWidth === "5%" ? "20%" : "5%"
+            prevWidth === "5%" ? "20%" : "5%"
         );
     };
 
+    const toggleMax=()=>{
+        setLeftWidth((prevWidth)=>
+            prevWidth === "40%" ? "20%" : "40%"
+        )
+    }
+
     const handleLeftResize = (event) => {
         const newLeftWidth = `${event.clientX}px`;
-        setLeftWidth(newLeftWidth);
+        console.log(newLeftWidth)
+        if(newLeftWidth === "295px"){
+            toggleLeft()
+        }
+        else{
+            setLeftWidth(newLeftWidth);
+        }
     };
     
     const handleRightResize = (event) => {
@@ -32,9 +44,9 @@ const App = () => {
 
     return (
         <Box className="app" display="flex" flexDirection="column" bgcolor="black">
-            <Box display="flex" height="90%">
-                <Box display="flex" minWidth="5%" maxWidth="40%" style={{ width: leftWidth }}>
-                    <Left toggleLeftWidth={toggleLeft} />
+            <Box display="flex" height="88%">
+                <Box display="flex" minWidth="96px" maxWidth="40%" style={{ width: leftWidth }}>
+                    <Left toggleLeftWidth={toggleLeft} toggleMaxWidth={toggleMax} />
                 </Box>
                 <Divider
                     sx={{ cursor: 'col-resize', width: '8px', backgroundColor: 'black',}}
@@ -65,7 +77,7 @@ const App = () => {
                 </>
                 )}
             </Box>
-            <Box display="flex" height="10%">
+            <Box display="flex" height="12%">
                 <Bottom toggleRight={toggleRight} />
             </Box>
         </Box>

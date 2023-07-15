@@ -27,7 +27,6 @@ const Right=({toggleRightWidth})=>{
                     <img src={`../../assets/olivia.jpeg`} alt="olivia" width="100%" style={{ borderRadius: "10px" }} />
                 </Link>
             </Box>
-
             <Box display="flex" justifyContent="space-between">
                 <Box display="flex" flexDirection="column">
                     <Link href="/sour" sx={{textDecoration:"none"}}>
