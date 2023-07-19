@@ -43,13 +43,35 @@ const App = () => {
     };
 
     return (
-        <Box className="app" display="flex" flexDirection="column" bgcolor="black">
-            <Box display="flex" height="88%">
-                <Box display="flex" minWidth="96px" maxWidth="40%" style={{ width: leftWidth }}>
-                    <Left toggleLeftWidth={toggleLeft} toggleMaxWidth={toggleMax} />
+        <Box 
+            className="app" 
+            display="flex" 
+            flexDirection="column" 
+            bgcolor="black"
+        >
+            <Box 
+                display="flex" 
+                height="88%"
+            >
+                <Box 
+                    display="flex" 
+                    minWidth="96px" 
+                    maxWidth="40%" 
+                    style={{ 
+                        width: leftWidth 
+                    }}
+                >
+                    <Left 
+                        toggleLeftWidth={toggleLeft} 
+                        toggleMaxWidth={toggleMax} 
+                    />
                 </Box>
                 <Divider
-                    sx={{ cursor: 'col-resize', width: '8px', backgroundColor: 'black',}}
+                    sx={{ 
+                        cursor: 'col-resize', 
+                        width: '8px', 
+                        backgroundColor: 'black',
+                    }}
                     onMouseDown={() => {
                         document.addEventListener('mousemove', handleLeftResize);
                         document.addEventListener('mouseup', () => {
@@ -57,13 +79,20 @@ const App = () => {
                         });
                     }}
                 />
-                <Box display="flex" flex="1">
+                <Box 
+                    display="flex" 
+                    flex="1"
+                >
                     <Middle />
                 </Box>
                 {showRight && (
                 <>
                     <Divider
-                        sx={{ cursor: 'col-resize', width: '8px', backgroundColor: 'black',}}
+                        sx={{ 
+                            cursor: 'col-resize', 
+                            width: '8px', 
+                            backgroundColor: 'black',
+                        }}
                         onMouseDown={() => {
                             document.addEventListener('mousemove', handleRightResize);
                             document.addEventListener('mouseup', () => {
@@ -71,14 +100,28 @@ const App = () => {
                             });
                         }}
                     />
-                    <Box display="flex" minWidth="20%" maxWidth="30%" style={{ width: rightWidth }}>
-                        <Right toggleRightWidth={toggleRight}/>
+                    <Box 
+                        display="flex" 
+                        minWidth="20%" 
+                        maxWidth="30%" 
+                        style={{ 
+                            width: rightWidth 
+                        }}
+                    >
+                        <Right 
+                            toggleRightWidth={toggleRight}
+                        />
                     </Box>
                 </>
                 )}
             </Box>
-            <Box display="flex" height="12%">
-                <Bottom toggleRight={toggleRight} />
+            <Box 
+                display="flex" 
+                height="12%"
+            >
+                <Bottom 
+                    toggleRight={toggleRight} 
+                />
             </Box>
         </Box>
     );
