@@ -1,29 +1,39 @@
 import React, { useState } from "react";
 import { Box, Button, ButtonBase, IconButton, InputBase, List, Typography } from "@mui/material";
-import { HiChevronDown, HiOutlineArrowCircleDown, HiOutlineChevronLeft, HiOutlineChevronRight, HiOutlineUserGroup, HiPause,HiPlay, HiSearch } from "react-icons/hi";
+import { HiChevronDown, HiChevronUp, HiOutlineArrowCircleDown, HiOutlineChevronLeft, HiOutlineChevronRight, HiOutlineUserGroup, HiPause,HiPlay, HiSearch } from "react-icons/hi";
 
 const Middle=()=>{
     const [play, pause]=useState(true);
     const [search, showSearch]=useState(true)
+    const [drop, setDrop]=useState(false);
+
+    const dropdown=()=>{
+        setDrop(!drop);
+    }
+
     const togglePlay=()=>{
         pause(!play)
     }
+
     const toggleSearch=()=>{
         showSearch(!search)
     }
+
     const data=[
         'Liked Songs', 'Olivia Rodrigo', 'Hindi', 'Malayalam',
         'English', 'Coldplay', 'Hans Zimmer', 'Tamil',
         'Imagine Dragons', 'Arctic Monkeys', 'Taylor Swift', 'Harry Styles',
     ];
     return(
-        <Box display="flex" flexDirection="column"  bgcolor="white" width="100%" margin="8px 0 8px 0" borderRadius="10px" >
+        <Box display="flex"  overflow="auto" borderRadius="10px" width="100%" margin="8px 0 8px 0" gap="8px">
+        <Box display="flex" flexDirection="column"  bgcolor="white" width="100%"  >
             <Box display="flex" alignItems="center" justifyContent="space-between" margin="10px" bgcolor="white">
                 <Box display="flex" gap="8px">
                     <IconButton style={{ background:"lightgray" }}>
                         <HiOutlineChevronLeft size="20px" color="black"/>
                     </IconButton>
                     <IconButton style={{ background:"lightgray" }}>
+
                         <HiOutlineChevronRight size="20px" color="black"/>
                     </IconButton>
                 </Box>
@@ -40,9 +50,7 @@ const Middle=()=>{
                 </Box>
             </Box>
 
-           
-            <Box 
-                overflow="auto">
+            <Box overflow="auto">
                 <List disablePadding sx={{ background:"white"}}>
                     <Box display="flex" bgcolor="blueviolet" margin="10px" >
                         <Box display="flex">
@@ -82,18 +90,18 @@ const Middle=()=>{
                             </Box>
                             <Box display="flex" margin="8px" alignItems="center">
                                 <ButtonBase disableRipple sx={{background:"lightgray", borderRadius:"20px", margin:"8px"}}>
+                                    {search ? <></> : <InputBase sx={{padding:"0 0 0 15px"}} placeholder="Search"/>}
                                     <IconButton type="button" sx={{p:1, transition: "ease-in-out"}} onClick={toggleSearch}>
                                         <HiSearch size="20px" color="black" />
                                     </IconButton>
-                                    {search ? <></> : <InputBase sx={{margin:"0 10px 0 8px"}} placeholder="Search"/>}
                                 </ButtonBase>
                                 <Box display="flex">
-                                    <ButtonBase disableRipple>
+                                    <ButtonBase disableRipple onClick={dropdown}>
                                         <Typography fontSize="14px" fontWeight="bold" margin="8px">
-                                            Date added
+                                            Date Added
                                         </Typography>
                                         <Box display="flex">
-                                            <HiChevronDown size="20px" color="black" />
+                                            {drop ? <HiChevronUp size="20px" color="black"/> : <HiChevronDown size="20px" color="black"/>}
                                         </Box>
                                     </ButtonBase>
                                 </Box>
@@ -130,6 +138,7 @@ const Middle=()=>{
                     ))}
                 </List>
             </Box>
+        </Box>
         </Box>
     )
 }

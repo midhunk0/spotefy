@@ -28,7 +28,6 @@ const App = () => {
 
     const handleLeftResize = (event) => {
         const newLeftWidth = `${event.clientX}px`;
-        console.log(newLeftWidth)
         if(newLeftWidth === "295px"){
             toggleLeft()
         }
@@ -42,39 +41,37 @@ const App = () => {
         setRightWidth(newRightWidth);
     };
 
+    const CustomDivider=({resize})=>{
+        return(
+            <Divider
+                sx={{ cursor: 'col-resize', width: '8px', backgroundColor: 'black',}}
+                onMouseDown={() => {
+                    document.addEventListener('mousemove', resize);
+                    document.addEventListener('mouseup', () => {
+                        document.removeEventListener('mousemove', resize);
+                    });
+                }}
+            />
+        )
+    }
+
     return (
-        <Box className="app" display="flex" flexDirection="column" bgcolor="black">
+        <Box display="flex" flexDirection="column" bgcolor="black">
             <Box display="flex" height="88%">
-                <Box display="flex" minWidth="96px" maxWidth="40%" style={{ width: leftWidth }}>
+                <Box display="flex" minWidth="6.3%" maxWidth="40%" style={{ width: leftWidth }}>
                     <Left toggleLeftWidth={toggleLeft} toggleMaxWidth={toggleMax} />
                 </Box>
-                <Divider
-                    sx={{ cursor: 'col-resize', width: '8px', backgroundColor: 'black',}}
-                    onMouseDown={() => {
-                        document.addEventListener('mousemove', handleLeftResize);
-                        document.addEventListener('mouseup', () => {
-                            document.removeEventListener('mousemove', handleLeftResize);
-                        });
-                    }}
-                />
+                <CustomDivider resize={handleLeftResize}/>
                 <Box display="flex" flex="1">
                     <Middle />
                 </Box>
-                {showRight && (
-                    <>
-                        <Divider
-                            sx={{ cursor: 'col-resize', width: '8px', backgroundColor: 'black',}}
-                            onMouseDown={() => {
-                                document.addEventListener('mousemove', handleRightResize);
-                                document.addEventListener('mouseup', () => {
-                                    document.removeEventListener( 'mousemove', handleRightResize);
-                                });
-                            }}
-                        />
-                        <Box display="flex" minWidth="20%" maxWidth="30%" style={{ width: rightWidth }}>
-                            <Right toggleRightWidth={toggleRight}/>
-                        </Box>
-                    </>
+                { showRight ? (
+                    <Box display="flex" minWidth="20%" maxWidth="30%" style={{ width: rightWidth }}>
+                        <CustomDivider resize={handleRightResize}/>
+                        <Right toggleRightWidth={toggleRight}/>
+                    </Box>
+                ):(
+                    <Box marginLeft="8px"></Box>
                 )}
             </Box>
             <Box display="flex" height="12%">
@@ -85,3 +82,12 @@ const App = () => {
 };
 
 export default App;
+
+
+
+
+
+
+
+
+
