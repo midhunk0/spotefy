@@ -39,6 +39,14 @@ const Middle=()=>{
         )
     }
 
+    const MaxTitle=({title, width, align})=>{
+        return(
+            <Typography fontSize="14px" fontWeight="bold" margin="8px" width={width} align={align}>
+                {title}
+            </Typography>
+        )
+    }
+
     return(
         <Box display="flex"  overflow="auto" borderRadius="10px" width="100%" margin="8px 0 8px 0" gap="8px">
             <Box display="flex" flexDirection="column"  bgcolor="white" width="100%"  >
@@ -126,15 +134,9 @@ const Middle=()=>{
 
                         <Box display="flex" flexDirection="column" position="sticky" top={0} zIndex={1} bgcolor="white">
                             <Box display="flex">
-                                <Typography fontSize="14px" fontWeight="bold" margin="8px" width="40%" align="left">
-                                    Title
-                                </Typography>
-                                <Typography fontSize="14px" fontWeight="bold" margin="8px" width="40%" align="center">
-                                    Date Added
-                                </Typography>
-                                <Typography fontSize="14px" fontWeight="bold" margin="8px" width="20%" align="right">
-                                    Played
-                                </Typography>
+                                <MaxTitle title="Title" width="40%" align="left"/>
+                                <MaxTitle title="Date Added" width="40%" align="center"/>
+                                <MaxTitle title="Played" width="20%" align="right"/>
                             </Box>
                             <hr style={{ color: "gray", width: "calc(100% - 16px)" }}>
                             </hr>
@@ -142,9 +144,9 @@ const Middle=()=>{
                         {data.map((item, index) => (
                             <Button key={index} disableRipple sx={{ height: "72px", textTransform: "none", fontWeight: "bold",background: "lightgray", color: "black", borderRadius: "10px", width: "calc(100% - 16px)", margin: "0 8px 8px", justifyContent: "left", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }, }} >
                                 {index === 1 ? (
-                                        <Image src="../../assets/olivia.jpeg" alt="olivia" />
-                                    ) : (
-                                        <Image src="../../assets/liked.png" alt="liked" />
+                                    <Image src="../../assets/olivia.jpeg" alt="olivia" />
+                                ) : (
+                                    <Image src="../../assets/liked.png" alt="liked" />
                                 )}
                                 <Box alignItems="center" marginLeft="8px">
                                     {item}
