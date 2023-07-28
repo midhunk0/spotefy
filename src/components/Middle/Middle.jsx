@@ -25,6 +25,14 @@ const Middle=()=>{
         'Imagine Dragons', 'Arctic Monkeys', 'Taylor Swift', 'Harry Styles',
     ];
 
+    const TopbarButton=({icon})=>{
+        return(
+            <IconButton style={{ background:"lightgray" }}>
+                {icon}
+            </IconButton>
+        )
+    }
+
     const Image=({src, alt})=>{
         return(
             <img 
@@ -47,21 +55,75 @@ const Middle=()=>{
         )
     }
 
-    return(
-        <Box display="flex"  overflow="auto" borderRadius="10px" width="100%" margin="8px 0 8px 0" gap="8px">
-            <Box display="flex" flexDirection="column"  bgcolor="white" width="100%"  >
-                <Box display="flex" alignItems="center" justifyContent="space-between" margin="10px" bgcolor="white">
-                    <Box display="flex" gap="8px">
-                        <IconButton style={{ background:"lightgray" }}>
-                            <HiOutlineChevronLeft size="20px" color="black"/>
-                        </IconButton>
-                        <IconButton style={{ background:"lightgray" }}>
+    const mainBox={
+        display:"flex", 
+        overflow:"auto", 
+        borderRadius:"10px", 
+        width:"100%",
+        margin:"8px 0 8px 0", 
+        gap:"8px", 
+    }
 
-                            <HiOutlineChevronRight size="20px" color="black"/>
-                        </IconButton>
+    const subBox={
+        display:"flex", 
+        flexDirection:"column",  
+        bgcolor:"white", 
+        width:"100%" 
+    }
+
+    const topBar={
+        display:"flex", 
+        alignItems:"center", 
+        justifyContent:"space-between", 
+        margin:"10px",
+        bgcolor:"white"
+    }
+
+    const buttonStyle={
+        width:"150px", 
+        borderRadius:"20px", 
+        background:"lightgray", 
+        color:"black", 
+        "&:hover":{ 
+            background:"gray", 
+            color:"white" 
+        }, 
+        "&:active":{ 
+            background:"black", 
+            transition:"background 0.7s" 
+        }
+    }
+
+    const listButton={
+        height: "72px", 
+        textTransform: "none", 
+        fontWeight: "bold",
+        background: "lightgray", 
+        color: "black", 
+        borderRadius: "10px", 
+        width: "calc(100% - 16px)", 
+        margin: "0 8px 8px", 
+        justifyContent: "left", 
+        "&:hover": { 
+            background: "gray", 
+            color: "white" 
+        }, 
+        "&:active": { 
+            background: "black", 
+            transition: "background .7s" 
+        }
+    }
+
+    return(
+        <Box sx={mainBox}>
+            <Box sx={subBox}>
+                <Box sx={topBar}>
+                    <Box display="flex" gap="8px">
+                        <TopbarButton icon={<HiOutlineChevronLeft size="20px" color="black"/>}/>
+                        <TopbarButton icon={<HiOutlineChevronRight size="20px" color="black"/>}/>
                     </Box>
                     <Box display="flex" gap="8px">
-                        <Button disableRipple sx={{ width:"150px", borderRadius:"20px", background:"lightgray", color:"black", "&:hover":{ background:"gray", color:"white" }, "&:active":{ background:"black", transition:"background 0.7s" }}}>
+                        <Button disableRipple sx={buttonStyle}>
                             <Typography fontSize="14px" fontWeight="bold" sx={{ textTransform:"none"}} >
                                 Explore Premium
                             </Typography>
@@ -142,7 +204,7 @@ const Middle=()=>{
                             </hr>
                         </Box>
                         {data.map((item, index) => (
-                            <Button key={index} disableRipple sx={{ height: "72px", textTransform: "none", fontWeight: "bold",background: "lightgray", color: "black", borderRadius: "10px", width: "calc(100% - 16px)", margin: "0 8px 8px", justifyContent: "left", "&:hover": { background: "gray", color: "white" }, "&:active": { background: "black", transition: "background .7s" }, }} >
+                            <Button key={index} disableRipple sx={listButton} >
                                 {index === 1 ? (
                                     <Image src="../../assets/olivia.jpeg" alt="olivia" />
                                 ) : (

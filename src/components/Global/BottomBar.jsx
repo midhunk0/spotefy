@@ -30,21 +30,97 @@ const Bottom=({toggleRight})=>{
         volumeOff(!volumeOn)
     }
 
+    const Image=({src, alt})=>{
+        return(
+            <img 
+                src={src} 
+                alt={alt} 
+                width="56px" 
+                height="56px" 
+                style={{
+                    borderRadius:"10px", 
+                    marginLeft:"8px"
+                }}
+            />
+        )
+    }
+
+    const ImageLink=({title, link, fontsize})=>{
+        return(
+            <Link href={link} sx={{textDecoration:"none"}}>
+                <Typography fontSize={fontsize} fontWeight="bold" color="black" marginLeft="10px" sx={{"&:hover":{textDecoration:"underline"}}}>
+                    {title}
+                </Typography>
+            </Link>
+        )
+    }
+
+    const SongSlider=()=>{
+        return(
+            <Box display="flex" >
+                <Slider
+                    size="small" 
+                    defaultValue={2} 
+                    sx={{
+                        width:400,
+                        color:"black", 
+                        "&:hover":{
+                            color:"green"
+                        },
+                        "& .MuiSlider-thumb":{
+                            visibility:"hidden", 
+                            boxShadow:"none",
+                            ":hover, :after":{
+                                visibility:"visible", 
+                                color:"black"
+                            }
+                        }
+                    }} 
+                />
+            </Box>
+        )
+    }
+
+    const VolumeSlider=()=>{
+        return(
+            <Box display="flex" width="150px" margin="0 23px 0 14px" alignItems="center">
+                <Slider    
+                    defaultValue={20} 
+                    sx={{
+                        color:"black", 
+                        "&:hover":{
+                            color:"green"
+                        }, 
+                        "& .MuiSlider-thumb":{
+                            visibility:"hidden", 
+                            boxShadow:"none",
+                            ":hover, :after":{
+                                visibility:"visible", 
+                                color:"black"
+                            }
+                        }
+                    }} 
+                />
+            </Box>
+        )
+    }
+
+    const mainBox={
+        display:"flex", 
+        bgcolor:"white", 
+        borderRadius:"10px", 
+        width:"100%", 
+        margin:"0 8px 8px 8px", 
+        padding:"8px",
+    }
+
     return(
-        <Box display="flex" bgcolor="white" borderRadius="10px" width="100%" margin="0 8px 8px 8px" padding="8px">
+        <Box sx={mainBox}>
             <Box display="flex" width="30%" alignItems="center">
-                <img src={`../../assets/olivia.jpeg`} alt="olivia" width="56px" height="56px" style={{borderRadius:"10px", marginLeft:"8px"}}/>
+                <Image src="../../assets/olivia.jpeg" alt="olivia"/>
                 <Box display="flex" flexDirection="column" justifyContent="center">
-                    <Link href="/happier" sx={{textDecoration:"none"}}>
-                        <Typography fontSize="18px" fontWeight="bold" color="black" marginLeft="10px" sx={{"&:hover":{textDecoration:"underline"}}}>
-                            Drivers licence
-                        </Typography>
-                    </Link>
-                    <Link href="./olivia" sx={{textDecoration:"none"}}>
-                        <Typography fontSize="15px" fontWeight="bold" color="black" marginLeft="10px" sx={{"&:hover":{textDecoration:"underline"}}}>
-                            Olivia
-                        </Typography>
-                    </Link>
+                    <ImageLink title="Drivers licence" link="/happier" fontsize="18px"/>
+                    <ImageLink title="Olivia" link="./olivia" fontsize="15px"/>
                 </Box>
                 <Box display="flex" marginLeft="10px" alignItems="center">
                     <IconButton onClick={setLiked}>
@@ -65,27 +141,7 @@ const Bottom=({toggleRight})=>{
                         <HiFastForward color="black"/>
                     </IconButton>
                 </Box>
-                <Box display="flex" >
-                    <Slider 
-                        size="small" 
-                        defaultValue={2} 
-                        sx={{
-                            width:400,
-                            color:"black", 
-                            "&:hover":{
-                                color:"green"
-                            },
-                            "& .MuiSlider-thumb":{
-                                visibility:"hidden", 
-                                boxShadow:"none",
-                                ":hover, :after":{
-                                    visibility:"visible", 
-                                    color:"black"
-                                }
-                            }
-                        }} 
-                    />
-                </Box>
+                <SongSlider/>
             </Box>
 
             <Box display="flex" width="30%" justifyContent="end" alignItems="center">
@@ -102,28 +158,10 @@ const Bottom=({toggleRight})=>{
                     <IconButton onClick={toggleVolume}>
                         {volumeOn ? <HiVolumeUp color="green"/> : <HiVolumeOff color="black"/>}
                     </IconButton>
-                    <Box display="flex" width="150px" margin="0 23px 0 14px" alignItems="center">
-                        <Slider    
-                            defaultValue={20} 
-                            sx={{
-                                color:"black", 
-                                "&:hover":{
-                                    color:"green"
-                                }, 
-                                "& .MuiSlider-thumb":{
-                                    visibility:"hidden", 
-                                    boxShadow:"none",
-                                    ":hover, :after":{
-                                        visibility:"visible", 
-                                        color:"black"
-                                    }
-                                }
-                            }} 
-                        />
+                    <VolumeSlider/>
                     </Box>
                 </Box>
             </Box>
-        </Box>
     )
 }
 
