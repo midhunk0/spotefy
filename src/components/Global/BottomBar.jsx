@@ -2,23 +2,19 @@ import React, {useState} from "react";
 import { Box, IconButton, Link, Typography, Slider } from "@mui/material";
 import { HiFastForward, HiHeart, HiOutlineHeart, HiOutlineMicrophone, HiOutlineViewGrid, HiOutlineViewGridAdd, HiPause, HiPlay, HiRewind, HiViewList, HiVolumeOff, HiVolumeUp } from "react-icons/hi";
 
-const Bottom=({toggleRight})=>{
-    const [liked, notLiked]=useState(false);
-    const [play, pause]=useState(true);
-    const [right, showRight]=useState(true);
+const Bottom=({right, toggleRight, liked, toggleLiked, play, togglePlay})=>{
     const [lyrics, showLyrics]=useState(false);
     const [volumeOn, volumeOff]=useState(true);
 
     const setLiked=()=>{
-        notLiked(!liked)
+        toggleLiked()
     }
 
-    const togglePlay=()=>{
-        pause(!play)
+    const togglePlayPause=()=>{
+        togglePlay()
     }
 
     const rightToggle = () => {
-        showRight(!right)
         toggleRight()
     };
 
@@ -134,7 +130,7 @@ const Bottom=({toggleRight})=>{
                     <IconButton>
                         <HiRewind color="black"/>
                     </IconButton>
-                    <IconButton onClick={togglePlay}>
+                    <IconButton onClick={togglePlayPause}>
                         {play ? <HiPause color="black"/> : <HiPlay color="black"/>}
                     </IconButton>
                     <IconButton>

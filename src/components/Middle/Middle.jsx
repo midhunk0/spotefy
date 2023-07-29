@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Box, Button, ButtonBase, IconButton, InputBase, List, Typography } from "@mui/material";
 import { HiChevronDown, HiChevronUp, HiOutlineArrowCircleDown, HiOutlineChevronLeft, HiOutlineChevronRight, HiOutlineUserGroup, HiPause,HiPlay, HiSearch } from "react-icons/hi";
 
-const Middle=()=>{
-    const [play, pause]=useState(true);
+const Middle=({play, togglePlay})=>{
     const [search, showSearch]=useState(true)
     const [drop, setDrop]=useState(false);
 
@@ -11,8 +10,8 @@ const Middle=()=>{
         setDrop(!drop);
     }
 
-    const togglePlay=()=>{
-        pause(!play)
+    const togglePlayPause=()=>{
+        togglePlay()
     }
 
     const toggleSearch=()=>{
@@ -166,7 +165,7 @@ const Middle=()=>{
                         <Box display="flex" flexDirection="column"  bgcolor="white" >
                             <Box display="flex" justifyContent="space-between">
                                 <Box display="flex" alignItems="center">
-                                    <IconButton disableRipple onClick={togglePlay}>
+                                    <IconButton disableRipple onClick={togglePlayPause}>
                                         {play ? <HiPause size="80px" color="green"/> : <HiPlay size="80px" color="green"/>}
                                     </IconButton>
                                     <IconButton>

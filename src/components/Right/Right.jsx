@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { Box, Button, IconButton, Link, Typography } from '@mui/material';
 import { HiBadgeCheck, HiChevronRight, HiDotsHorizontal, HiHeart, HiOutlineHeart, HiMusicNote, HiX } from "react-icons/hi";
 
-const Right=({toggleRightWidth})=>{
+const Right=({toggleRightWidth, liked, toggleLiked})=>{
     const [isHovered, setIsHovered]=useState(false);
-    const [liked, notLiked]=useState(false);
 
     const setLiked=()=>{
-        notLiked(!liked)
+        toggleLiked()
     }
 
     return (
