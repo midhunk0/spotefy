@@ -1,8 +1,11 @@
 import React, {useState} from "react";
-import { Box, IconButton, Link, Typography, Slider } from "@mui/material";
+import { Box, IconButton, Link, Typography, Slider, useTheme } from "@mui/material";
 import { HiFastForward, HiHeart, HiOutlineHeart, HiOutlineMicrophone, HiOutlineViewGrid, HiOutlineViewGridAdd, HiPause, HiPlay, HiRewind, HiViewList, HiVolumeOff, HiVolumeUp } from "react-icons/hi";
+import { tokens } from "../../theme";
 
 const Bottom=({right, toggleRight, liked, toggleLiked, play, togglePlay})=>{
+    const theme=useTheme();
+    const colors=tokens(theme.palette.mode);
     const [lyrics, showLyrics]=useState(false);
     const [volumeOn, volumeOff]=useState(true);
 
@@ -59,9 +62,10 @@ const Bottom=({right, toggleRight, liked, toggleLiked, play, togglePlay})=>{
                     defaultValue={2} 
                     sx={{
                         width:400,
-                        color:"black", 
+                        color:colors.primary[100],
                         "&:hover":{
-                            color:"green"
+                            // color:"green"
+                            color:colors.greenAccent[300]
                         },
                         "& .MuiSlider-thumb":{
                             visibility:"hidden", 

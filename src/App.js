@@ -1,11 +1,16 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { Box, Divider } from '@mui/material';
 import Left from './components/Left/Left';
 import Middle from './components/Middle/Middle';
 import Right from './components/Right/Right';
 import Bottom from './components/Global/BottomBar';
+import { ColorModeContext, useMode } from "./theme";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+
 
 const App = () => {
+    const [theme,colorMode]=useMode();
     const [right, setRight] = useState(true);
     const [leftWidth, setLeftWidth] = useState('20%');
     const [rightWidth, setRightWidth] = useState('20%');
@@ -66,6 +71,9 @@ const App = () => {
     }
 
     return (
+        <ColorModeContext.Provider value={colorMode}>
+        <ThemeProvider theme={theme}>
+            <CssBaseline/>
         <Box display="flex" flexDirection="column" bgcolor="black">
             <Box display="flex" height="88%">
                 <Box display="flex" minWidth="6.3%" maxWidth="40%" style={{ width: leftWidth }}>
@@ -88,6 +96,8 @@ const App = () => {
                 <Bottom right={right} toggleRight={toggleRight} liked={liked} toggleLiked={toggleLiked} play={play} togglePlay={togglgePlay} />
             </Box>
         </Box>
+        </ThemeProvider>
+        </ColorModeContext.Provider>
     );
 };
 

@@ -1,8 +1,12 @@
-import React, { useState } from "react";
-import { Box, Button, ButtonBase, IconButton, InputBase, List, Typography } from "@mui/material";
-import { HiChevronDown, HiChevronUp, HiOutlineArrowCircleDown, HiOutlineChevronLeft, HiOutlineChevronRight, HiOutlineUserGroup, HiPause,HiPlay, HiSearch } from "react-icons/hi";
+import React, { useContext, useState } from "react";
+import { Box, Button, useTheme, ButtonBase, IconButton, InputBase, List, Typography } from "@mui/material";
+import { HiChevronDown, HiChevronUp, HiOutlineMoon, HiOutlineSun, HiOutlineArrowCircleDown, HiOutlineChevronLeft, HiOutlineChevronRight, HiOutlineUserGroup, HiPause,HiPlay, HiSearch } from "react-icons/hi";
+import { tokens, ColorModeContext } from "../../theme";
 
 const Middle=({play, togglePlay})=>{
+    const theme=useTheme();
+    const colors=tokens(theme.palette.mode);
+    const colorMode=useContext(ColorModeContext);
     const [search, showSearch]=useState(true)
     const [drop, setDrop]=useState(false);
 
@@ -129,6 +133,13 @@ const Middle=({play, togglePlay})=>{
                         </Button>
                         <IconButton style={{ background:"lightgray"}}>
                             <HiOutlineUserGroup size="20px" color="black"/>
+                        </IconButton>
+                        <IconButton onClick={colorMode.toggleColorMode} style={{ background:"lightgray"}}>
+                            {theme.palette.mode==="dark" ? (
+                                <HiOutlineMoon size="20px" color="black"/>
+                            ):(
+                                <HiOutlineSun size="20px" color="black"/>
+                            )}
                         </IconButton>
                         <img src={`../../assets/user.png`} style={{ width:"36px", height:"36px", borderRadius:"50%"}} alt=""/>
                     </Box>

@@ -35,7 +35,7 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
     const HeaderButtons=({link, icon, title})=>{
         return(
             <Link href={link} color="#000" sx={{textDecoration:"none"}}>
-                <Box display="flex" margin="8px">
+                <Box display="flex" margin="8px"  gap="10px">
                     <Box width="25px" height="25px" padding="10px">
                         {icon}
                     </Box>
@@ -159,12 +159,14 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
                     <Box display="flex" margin="8px" justifyContent="space-between">
                         <Box>
                             <ButtonBase disableRipple onClick={leftToggle}>
-                                <Box width="25px" height="25px" padding="10px">
-                                    <HiCollection size="25px" color="black"/>
+                                <Box display="flex" gap="10px">
+                                    <Box width="25px" height="25px" padding="10px" >
+                                        <HiCollection size="25px" color="black"/>
+                                    </Box>
+                                    <Typography color="black" variant='h6' fontWeight="bold" margin="4px" padding="2px">
+                                        Your Library
+                                    </Typography>
                                 </Box>
-                                <Typography variant='h6' fontWeight="bold" margin="4px" padding="2px">
-                                    Your Library
-                                </Typography>
                             </ButtonBase>
                         </Box>
                         <Box display="flex" gap="8px" alignItems="center">
