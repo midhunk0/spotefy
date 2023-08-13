@@ -47,7 +47,7 @@ const Bottom=({right, toggleRight, liked, toggleLiked, play, togglePlay})=>{
     const ImageLink=({title, link, fontsize})=>{
         return(
             <Link href={link} sx={{textDecoration:"none"}}>
-                <Typography fontSize={fontsize} fontWeight="bold" color="black" marginLeft="10px" sx={{"&:hover":{textDecoration:"underline"}}}>
+                <Typography fontSize={fontsize} fontWeight="bold" color={colors.primary[100]} marginLeft="10px" sx={{"&:hover":{textDecoration:"underline"}}}>
                     {title}
                 </Typography>
             </Link>
@@ -64,7 +64,6 @@ const Bottom=({right, toggleRight, liked, toggleLiked, play, togglePlay})=>{
                         width:400,
                         color:colors.primary[100],
                         "&:hover":{
-                            // color:"green"
                             color:colors.greenAccent[300]
                         },
                         "& .MuiSlider-thumb":{
@@ -72,7 +71,7 @@ const Bottom=({right, toggleRight, liked, toggleLiked, play, togglePlay})=>{
                             boxShadow:"none",
                             ":hover, :after":{
                                 visibility:"visible", 
-                                color:"black"
+                                color:colors.primary[100]
                             }
                         }
                     }} 
@@ -87,16 +86,16 @@ const Bottom=({right, toggleRight, liked, toggleLiked, play, togglePlay})=>{
                 <Slider    
                     defaultValue={20} 
                     sx={{
-                        color:"black", 
+                        color:colors.primary[100], 
                         "&:hover":{
-                            color:"green"
+                            color:colors.greenAccent[300]
                         }, 
                         "& .MuiSlider-thumb":{
                             visibility:"hidden", 
                             boxShadow:"none",
                             ":hover, :after":{
                                 visibility:"visible", 
-                                color:"black"
+                                color:colors.primary[100]
                             }
                         }
                     }} 
@@ -107,7 +106,7 @@ const Bottom=({right, toggleRight, liked, toggleLiked, play, togglePlay})=>{
 
     const mainBox={
         display:"flex", 
-        bgcolor:"white", 
+        bgcolor:colors.primary[900], 
         borderRadius:"10px", 
         width:"100%", 
         margin:"0 8px 8px 8px", 
@@ -124,7 +123,7 @@ const Bottom=({right, toggleRight, liked, toggleLiked, play, togglePlay})=>{
                 </Box>
                 <Box display="flex" marginLeft="10px" alignItems="center">
                     <IconButton onClick={setLiked}>
-                        {liked ? <HiHeart  color="green"/> : <HiOutlineHeart color="black"/>}
+                        {liked ? <HiHeart  color={colors.greenAccent[300]}/> : <HiOutlineHeart color={colors.primary[100]}/>}
                     </IconButton>
                 </Box>
             </Box>
@@ -132,13 +131,13 @@ const Bottom=({right, toggleRight, liked, toggleLiked, play, togglePlay})=>{
             <Box display="flex" flexDirection="column" width="40%" alignItems="center">
                 <Box display="flex" gap="10px" >
                     <IconButton>
-                        <HiRewind color="black"/>
+                        <HiRewind color={colors.primary[100]}/>
                     </IconButton>
                     <IconButton onClick={togglePlayPause}>
-                        {play ? <HiPause color="black"/> : <HiPlay color="black"/>}
+                        {play ? <HiPause color={colors.primary[100]}/> : <HiPlay color={colors.primary[100]}/>}
                     </IconButton>
                     <IconButton>
-                        <HiFastForward color="black"/>
+                        <HiFastForward color={colors.primary[100]}/>
                     </IconButton>
                 </Box>
                 <SongSlider/>
@@ -147,16 +146,16 @@ const Bottom=({right, toggleRight, liked, toggleLiked, play, togglePlay})=>{
             <Box display="flex" width="30%" justifyContent="end" alignItems="center">
                 <Box display="flex" gap="10px">
                     <IconButton onClick={rightToggle}>
-                        {right ? <HiOutlineViewGrid color="green"/> : <HiOutlineViewGridAdd color="black"/>}
+                        {right ? <HiOutlineViewGrid color={colors.greenAccent[300]}/> : <HiOutlineViewGridAdd color={colors.primary[100]}/>}
                     </IconButton>
                     <IconButton onClick={toggleLyrics}>
-                        <HiOutlineMicrophone color={lyrics ? "green" : "black"}/>
+                        <HiOutlineMicrophone color={lyrics ? colors.greenAccent[700] : colors.primary[100]}/>
                     </IconButton>
                     <IconButton>
-                        <HiViewList color="black"/>
+                        <HiViewList color={colors.primary[100]}/>
                     </IconButton>
                     <IconButton onClick={toggleVolume}>
-                        {volumeOn ? <HiVolumeUp color="green"/> : <HiVolumeOff color="black"/>}
+                        {volumeOn ? <HiVolumeUp color={colors.greenAccent[300]}/> : <HiVolumeOff color={colors.primary[100]}/>}
                     </IconButton>
                     <VolumeSlider/>
                     </Box>

@@ -30,7 +30,7 @@ const Middle=({play, togglePlay})=>{
 
     const TopbarButton=({icon})=>{
         return(
-            <IconButton style={{ background:"lightgray" }}>
+            <IconButton style={{ background:colors.gray[700]}}>
                 {icon}
             </IconButton>
         )
@@ -70,7 +70,7 @@ const Middle=({play, togglePlay})=>{
     const subBox={
         display:"flex", 
         flexDirection:"column",  
-        bgcolor:"white", 
+        bgcolor:colors.primary[900], 
         width:"100%" 
     }
 
@@ -79,20 +79,20 @@ const Middle=({play, togglePlay})=>{
         alignItems:"center", 
         justifyContent:"space-between", 
         margin:"10px",
-        bgcolor:"white"
+        bgcolor:colors.primary[900]
     }
 
     const buttonStyle={
         width:"150px", 
         borderRadius:"20px", 
-        background:"lightgray", 
-        color:"black", 
+        background:colors.gray[700], 
+        color:colors.primary[100], 
         "&:hover":{ 
-            background:"gray", 
-            color:"white" 
+            background:colors.gray[500], 
+            color:colors.primary[100] 
         }, 
         "&:active":{ 
-            background:"black", 
+            background:colors.primary[900], 
             transition:"background 0.7s" 
         }
     }
@@ -101,18 +101,18 @@ const Middle=({play, togglePlay})=>{
         height: "72px", 
         textTransform: "none", 
         fontWeight: "bold",
-        background: "lightgray", 
-        color: "black", 
+        background: colors.gray[700], 
+        color: colors.primary[100], 
         borderRadius: "10px", 
         width: "calc(100% - 16px)", 
         margin: "0 8px 8px", 
         justifyContent: "left", 
         "&:hover": { 
-            background: "gray", 
-            color: "white" 
+            background: colors.gray[500], 
+            color: colors.primary[100] 
         }, 
         "&:active": { 
-            background: "black", 
+            background: colors.primary[900], 
             transition: "background .7s" 
         }
     }
@@ -122,8 +122,8 @@ const Middle=({play, togglePlay})=>{
             <Box sx={subBox}>
                 <Box sx={topBar}>
                     <Box display="flex" gap="8px">
-                        <TopbarButton icon={<HiOutlineChevronLeft size="20px" color="black"/>}/>
-                        <TopbarButton icon={<HiOutlineChevronRight size="20px" color="black"/>}/>
+                        <TopbarButton icon={<HiOutlineChevronLeft size="20px" color={colors.primary[100]}/>}/>
+                        <TopbarButton icon={<HiOutlineChevronRight size="20px" color={colors.primary[100]}/>}/>
                     </Box>
                     <Box display="flex" gap="8px">
                         <Button disableRipple sx={buttonStyle}>
@@ -131,22 +131,22 @@ const Middle=({play, togglePlay})=>{
                                 Explore Premium
                             </Typography>
                         </Button>
-                        <IconButton style={{ background:"lightgray"}}>
-                            <HiOutlineUserGroup size="20px" color="black"/>
+                        <IconButton style={{ background:colors.gray[700]}}>
+                            <HiOutlineUserGroup size="20px" color={colors.primary[100]}/>
                         </IconButton>
-                        <IconButton onClick={colorMode.toggleColorMode} style={{ background:"lightgray"}}>
+                        <IconButton onClick={colorMode.toggleColorMode} style={{ background:colors.gray[700]}}>
                             {theme.palette.mode==="dark" ? (
-                                <HiOutlineMoon size="20px" color="black"/>
+                                <HiOutlineMoon size="20px" color={colors.primary[100]}/>
                             ):(
-                                <HiOutlineSun size="20px" color="black"/>
+                                <HiOutlineSun size="20px" color={colors.primary[100]}/>
                             )}
                         </IconButton>
-                        <img src={`../../assets/user.png`} style={{ width:"36px", height:"36px", borderRadius:"50%"}} alt=""/>
+                        <img src={`../../assets/user.png`} style={{ width:"36px", height:"36px", borderRadius:"50%", border:"2px solid"}} alt=""/>
                     </Box>
                 </Box>
 
                 <Box overflow="auto">
-                    <List disablePadding sx={{ background:"white"}}>
+                    <List disablePadding sx={{ background:colors.primary[900]}}>
                         <Box display="flex" bgcolor="blueviolet" margin="10px" >
                             <Box display="flex">
                                 <img src={`../../assets/liked.png`} style={{ width:"200px" }} alt=""/>
@@ -173,21 +173,21 @@ const Middle=({play, togglePlay})=>{
                             </Box>
                         </Box>
 
-                        <Box display="flex" flexDirection="column"  bgcolor="white" >
+                        <Box display="flex" flexDirection="column"  bgcolor={colors.primary[900]} >
                             <Box display="flex" justifyContent="space-between">
                                 <Box display="flex" alignItems="center">
                                     <IconButton disableRipple onClick={togglePlayPause}>
-                                        {play ? <HiPause size="80px" color="green"/> : <HiPlay size="80px" color="green"/>}
+                                        {play ? <HiPause size="80px" color={colors.greenAccent[300]}/> : <HiPlay size="80px" color={colors.greenAccent[300]}/>}
                                     </IconButton>
                                     <IconButton>
-                                        <HiOutlineArrowCircleDown size="30px" color="black"/>
+                                        <HiOutlineArrowCircleDown size="30px" color={colors.primary[100]}/>
                                     </IconButton>
                                 </Box>
                                 <Box display="flex" margin="8px" alignItems="center">
-                                    <ButtonBase disableRipple sx={{background:"lightgray", borderRadius:"20px", margin:"8px"}}>
+                                    <ButtonBase disableRipple sx={{background:colors.gray[700], borderRadius:"20px", margin:"8px"}}>
                                         {search ? <></> : <InputBase sx={{padding:"0 0 0 15px"}} placeholder="Search"/>}
                                         <IconButton type="button" sx={{p:1, transition: "ease-in-out"}} onClick={toggleSearch}>
-                                            <HiSearch size="20px" color="black" />
+                                            <HiSearch size="20px" color={colors.primary[100]} />
                                         </IconButton>
                                     </ButtonBase>
                                     <Box display="flex">
@@ -196,7 +196,7 @@ const Middle=({play, togglePlay})=>{
                                                 Date Added
                                             </Typography>
                                             <Box display="flex">
-                                                {drop ? <HiChevronUp size="20px" color="black"/> : <HiChevronDown size="20px" color="black"/>}
+                                                {drop ? <HiChevronUp size="20px" color={colors.primary[100]}/> : <HiChevronDown size="20px" color={colors.primary[100]}/>}
                                             </Box>
                                         </ButtonBase>
                                     </Box>
@@ -204,13 +204,13 @@ const Middle=({play, togglePlay})=>{
                             </Box>
                         </Box>
 
-                        <Box display="flex" flexDirection="column" position="sticky" top={0} zIndex={1} bgcolor="white">
+                        <Box display="flex" flexDirection="column" position="sticky" top={0} zIndex={1} bgcolor={colors.primary[900]}>
                             <Box display="flex">
                                 <MaxTitle title="Title" width="40%" align="left"/>
                                 <MaxTitle title="Date Added" width="40%" align="center"/>
                                 <MaxTitle title="Played" width="20%" align="right"/>
                             </Box>
-                            <hr style={{ color: "gray", width: "calc(100% - 16px)" }}>
+                            <hr style={{ color: colors.gray[500], width: "calc(100% - 16px)" }}>
                             </hr>
                         </Box>
                         {data.map((item, index) => (

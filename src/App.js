@@ -8,8 +8,8 @@ import Bottom from './components/Global/BottomBar';
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
-
 const App = () => {
+
     const [theme,colorMode]=useMode();
     const [right, setRight] = useState(true);
     const [leftWidth, setLeftWidth] = useState('20%');
@@ -59,7 +59,7 @@ const App = () => {
     const CustomDivider=({resize})=>{
         return(
             <Divider
-                sx={{ cursor: 'col-resize', width: '8px', backgroundColor: 'black',}}
+                sx={{ cursor: 'col-resize', width: '8px', height:"101%"}}
                 onMouseDown={() => {
                     document.addEventListener('mousemove', resize);
                     document.addEventListener('mouseup', () => {
@@ -72,31 +72,31 @@ const App = () => {
 
     return (
         <ColorModeContext.Provider value={colorMode}>
-        <ThemeProvider theme={theme}>
-            <CssBaseline/>
-        <Box display="flex" flexDirection="column" bgcolor="black">
-            <Box display="flex" height="88%">
-                <Box display="flex" minWidth="6.3%" maxWidth="40%" style={{ width: leftWidth }}>
-                    <Left toggleLeftWidth={toggleLeft} toggleMaxWidth={toggleMax}  />
-                </Box>
-                <CustomDivider resize={handleLeftResize} />
-                <Box display="flex" flex="1">
-                    <Middle play={play} togglePlay={togglgePlay}/>
-                </Box>
-                {right ? (
-                    <Box display="flex" minWidth="20%" maxWidth="30%" style={{ width: rightWidth }}>
-                        <CustomDivider resize={handleRightResize} />
-                        <Right toggleRightWidth={toggleRight} liked={liked} toggleLiked={toggleLiked} />
+            <ThemeProvider theme={theme}>
+                <CssBaseline/>
+                <Box display="flex" flexDirection="column">
+                    <Box display="flex" height="88%">
+                        <Box display="flex" minWidth="6.3%" maxWidth="40%" style={{ width: leftWidth }}>
+                            <Left toggleLeftWidth={toggleLeft} toggleMaxWidth={toggleMax}  />
+                        </Box>
+                        <CustomDivider resize={handleLeftResize} />
+                        <Box display="flex" flex="1">
+                            <Middle play={play} togglePlay={togglgePlay}/>
+                        </Box>
+                        {right ? (
+                            <Box display="flex" minWidth="20%" maxWidth="30%" style={{ width: rightWidth }}>
+                                <CustomDivider resize={handleRightResize} />
+                                <Right toggleRightWidth={toggleRight} liked={liked} toggleLiked={toggleLiked} />
+                            </Box>
+                        ) : (
+                            <Box marginLeft="8px"></Box>
+                        )}
                     </Box>
-                ) : (
-                    <Box marginLeft="8px"></Box>
-                )}
-            </Box>
-            <Box display="flex" height="12%">
-                <Bottom right={right} toggleRight={toggleRight} liked={liked} toggleLiked={toggleLiked} play={play} togglePlay={togglgePlay} />
-            </Box>
-        </Box>
-        </ThemeProvider>
+                    <Box display="flex" height="12%">
+                        <Bottom right={right} toggleRight={toggleRight} liked={liked} toggleLiked={toggleLiked} play={play} togglePlay={togglgePlay} />
+                    </Box>
+                </Box>
+            </ThemeProvider>
         </ColorModeContext.Provider>
     );
 };
