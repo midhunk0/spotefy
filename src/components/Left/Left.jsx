@@ -37,7 +37,7 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
 
     const HeaderButtons=({link, icon, title})=>{
         return(
-            <Link href={link} color={colors.primary[100]} sx={{textDecoration:"none"}}>
+            <Link href={link} color={colors.gray[100]} sx={{textDecoration:"none"}}>
                 <Box display="flex" margin="8px"  gap="10px">
                     <Box width="25px" height="25px" padding="10px">
                         {icon}
@@ -52,8 +52,8 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
 
     const SmallHeaderButtons=({link, icon})=>{
         return(
-            <Link href={link} color={colors.primary[100]} sx={{textDecoration:"none"}}>
-                <Box display="flex" margin="8px" width="25px" padding="10px" height="25px">
+            <Link href={link} color={colors.gray[100]} sx={{textDecoration:"none"}}>
+                <Box display="flex" margin="8px"  padding="10px">
                     {icon}
                 </Box>
             </Link>
@@ -62,7 +62,7 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
     
     const LibraryButtons=({title})=>{
         return(
-            <Button disableRipple style={buttonStyle}>
+            <Button style={buttonStyle}>
                 <Typography fontSize="14px" fontWeight="bold" sx={{textTransform:"none"}}>
                     {title}
                 </Typography>                    
@@ -102,28 +102,28 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
     const homeBox={
         display:"flex", 
         flexDirection:"column", 
-        bgcolor:colors.primary[900], 
+        bgcolor:colors.gray[900], 
         borderRadius:"10px"
     }
 
     const libraryBox={
         display:"flex", 
         flexDirection:"column", 
-        bgcolor:colors.primary[900], 
+        bgcolor:colors.gray[900], 
         borderRadius:"10px", 
         overflow:"auto"
     }
 
     const buttonStyle={
         borderRadius:"20px",
-        background:colors.gray[700], 
-        color:colors.primary[100],
+        background:colors.gray[800], 
+        color:colors.gray[100],
         "&:hover":{
-            background:colors.gray[500], 
-            color:colors.primary[100]
+            background:colors.gray[700], 
+            color:colors.gray[100]
         }, 
         "&:active":{
-            background:colors.primary[900],
+            background:colors.gray[800],
             transition:"background 0.7s"
         }
     }
@@ -134,7 +134,7 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
         position:"sticky", 
         top:"0", 
         zIndex:"1", 
-        bgcolor:colors.primary[900]
+        bgcolor:colors.gray[900]
     }
 
     const listButton={
@@ -164,9 +164,9 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
                             <ButtonBase disableRipple onClick={leftToggle}>
                                 <Box display="flex" gap="10px">
                                     <Box width="25px" height="25px" padding="10px" >
-                                        <HiCollection size="25px" color={colors.primary[100]}/>
+                                        <HiCollection size="25px" color={colors.gray[100]}/>
                                     </Box>
-                                    <Typography color={colors.primary[100]} variant='h6' fontWeight="bold" margin="4px" padding="2px">
+                                    <Typography color={colors.gray[100]} variant='h6' fontWeight="bold" margin="4px" padding="2px">
                                         Your Library
                                     </Typography>
                                 </Box>
@@ -174,10 +174,10 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
                         </Box>
                         <Box display="flex" gap="8px" alignItems="center">
                             <IconButton>
-                                <HiPlus size="20px" color={colors.primary[100]}/>
+                                <HiPlus size="20px" color={colors.gray[100]}/>
                             </IconButton>
                             <IconButton onClick={maxToggle}>
-                                {max ? <HiArrowLeft size="20px" color={colors.primary[100]}/> : <HiArrowRight size="20px" color={colors.primary[100]}/>}
+                                {max ? <HiArrowLeft size="20px" color={colors.gray[100]}/> : <HiArrowRight size="20px" color={colors.gray[100]}/>}
                             </IconButton>
                         </Box>
                     </Box>
@@ -190,10 +190,10 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
                                     <LibraryButtons title="Artists"/>
                                 </Box>
                                 <Box display="flex" gap="8px" ml="200px">
-                                    <ButtonBase disableRipple sx={{background:colors.gray[700], borderRadius:"20px"}}>
+                                    <ButtonBase disableRipple sx={{background:colors.gray[800], borderRadius:"20px"}}>
                                         {search ? <></> : <InputBase sx={{padding:"0 0 0 15px"}} placeholder="Search"/>}
                                         <IconButton type="button" sx={{p:1, transition: "ease-in-out"}} onClick={toggleSearch}>
-                                            <HiSearch size="20px" color={colors.primary[100]} />
+                                            <HiSearch size="20px" color={colors.gray[100]} />
                                         </IconButton>
                                     </ButtonBase>
                                     <Box display="flex">
@@ -202,7 +202,7 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
                                                 Recent
                                             </Typography>
                                             <Box display="flex">
-                                                {drop ? <HiChevronUp size="20px" color={colors.primary[100]}/> : <HiChevronDown size="20px" color={colors.primary[100]}/>}
+                                                {drop ? <HiChevronUp size="20px" color={colors.gray[100]}/> : <HiChevronDown size="20px" color={colors.gray[100]}/>}
                                             </Box>
                                         </ButtonBase>
                                     </Box>
@@ -231,9 +231,9 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
                             ) : (
                                 <Box sx={list}>
                                     <Box display="flex" margin="8px" justifyContent="space-between">
-                                        <ButtonBase disableRipple sx={{background:colors.gray[700], borderRadius:"20px", margin:"8px"}}>
+                                        <ButtonBase disableRipple sx={{background:colors.gray[800], borderRadius:"20px", margin:"8px"}}>
                                             <IconButton type="button" sx={{p:1, transition: "ease-in-out"}} onClick={toggleSearch}>
-                                                <HiSearch size="20px" color={colors.primary[100]} />
+                                                <HiSearch size="20px" color={colors.gray[100]} />
                                             </IconButton>
                                             {search ? <></> : <InputBase sx={{margin:"0 10px 0 8px"}} placeholder="Search"/>}
                                         </ButtonBase>
@@ -243,7 +243,7 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
                                                     Recent
                                                 </Typography>
                                                 <Box display="flex">
-                                                    {drop ? <HiChevronUp size="20px" color={colors.primary[100]}/> : <HiChevronDown size="20px" color={colors.primary[100]}/>}
+                                                    {drop ? <HiChevronUp size="20px" color={colors.gray[100]}/> : <HiChevronDown size="20px" color={colors.gray[100]}/>}
                                                 </Box>
                                             </ButtonBase>
                                         </Box>
@@ -278,8 +278,8 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
                 <Box sx={libraryBox}>
                     <Box display="flex" justifyContent="center">
                         <ButtonBase disableRipple sx={{gap:"1px", margin:"8px"}} onClick={leftToggle}>
-                            <Box display="flex" width="25px" height="25px" padding="10px">
-                                <HiOutlineCollection size="25px" color={colors.primary[100]}/>
+                            <Box display="flex" padding="10px">
+                                <HiOutlineCollection size="25px" color={colors.gray[100]}/>
                             </Box>
                         </ButtonBase>
                     </Box>

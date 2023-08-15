@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useState } from 'react';
-import { Box, Divider } from '@mui/material';
+import { Box, Divider} from '@mui/material';
 import Left from './components/Left/Left';
 import Middle from './components/Middle/Middle';
 import Right from './components/Right/Right';
@@ -9,8 +9,7 @@ import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
 const App = () => {
-
-    const [theme,colorMode]=useMode();
+    const [themes,colorMode]=useMode();
     const [right, setRight] = useState(true);
     const [leftWidth, setLeftWidth] = useState('20%');
     const [rightWidth, setRightWidth] = useState('20%');
@@ -29,7 +28,7 @@ const App = () => {
         pause(!play)
     }
 
-    const toggleLeft = () => {
+    const toggleLeft=()=>{
         setLeftWidth((prevWidth) =>
             prevWidth === "5%" ? "20%" : "5%"
         );
@@ -37,13 +36,13 @@ const App = () => {
 
     const toggleMax=()=>{
         setLeftWidth((prevWidth)=>
-            prevWidth === "40%" ? "20%" : "40%"
+            prevWidth === "35%" ? "20%" : "35%"
         )
     }
 
-    const handleLeftResize = (event) => {
-        const newLeftWidth = `${event.clientX}px`;
-        if(newLeftWidth === "295px"){
+    const handleLeftResize=(event)=>{
+        const newLeftWidth=`${event.clientX}px`;
+        if(newLeftWidth === "calc(35% - 1px)"){
             toggleLeft()
         }
         else{
@@ -51,8 +50,8 @@ const App = () => {
         }
     };
     
-    const handleRightResize = (event) => {
-        const newRightWidth = `${window.innerWidth - event.clientX}px`;
+    const handleRightResize=(event)=>{
+        const newRightWidth=`${window.innerWidth - event.clientX}px`;
         setRightWidth(newRightWidth);
     };
 
@@ -72,11 +71,11 @@ const App = () => {
 
     return (
         <ColorModeContext.Provider value={colorMode}>
-            <ThemeProvider theme={theme}>
+            <ThemeProvider theme={themes}>
                 <CssBaseline/>
                 <Box display="flex" flexDirection="column">
                     <Box display="flex" height="88%">
-                        <Box display="flex" minWidth="6.3%" maxWidth="40%" style={{ width: leftWidth }}>
+                        <Box display="flex" minWidth="6.3%" maxWidth="35%" style={{ width: leftWidth }}>
                             <Left toggleLeftWidth={toggleLeft} toggleMaxWidth={toggleMax}  />
                         </Box>
                         <CustomDivider resize={handleLeftResize} />
