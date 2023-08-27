@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Box, IconButton, Link, Typography, Slider, useTheme } from "@mui/material";
 import { HiFastForward, HiHeart, HiOutlineHeart, HiOutlineMicrophone, HiOutlineViewGrid, HiOutlineViewGridAdd, HiPause, HiPlay, HiRewind, HiViewList, HiVolumeOff, HiVolumeUp } from "react-icons/hi";
-import { tokens } from "../../theme";
+import { tokens } from "../theme";
 
 const Bottom=({right, toggleRight, liked, toggleLiked, play, togglePlay})=>{
     const theme=useTheme();

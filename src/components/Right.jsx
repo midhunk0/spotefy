@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, useTheme, IconButton, Link, Typography } from '@mui/material';
 import { HiBadgeCheck, HiChevronRight, HiDotsHorizontal, HiHeart, HiOutlineHeart, HiMusicNote, HiX } from "react-icons/hi";
-import { tokens } from '../../theme';
+import { tokens } from '../theme';
 
 const Right=({toggleRightWidth, liked, toggleLiked})=>{
     const theme=useTheme();

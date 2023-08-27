@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, useTheme, ButtonBase, IconButton, InputBase, Link, List, Typography } from '@mui/material';
 import { HiArrowLeft, HiArrowRight, HiChevronDown, HiChevronUp, HiCollection, HiHome, HiOutlineCollection, HiPlus, HiSearch } from "react-icons/hi";
-import { tokens } from '../../theme';
+import { tokens } from '../theme';
 
 const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
     const theme=useTheme();

@@ -1,10 +1,10 @@
 // @ts-nocheck
 import React, { useState } from 'react';
 import { Box, Divider} from '@mui/material';
-import Left from './components/Left/Left';
-import Middle from './components/Middle/Middle';
-import Right from './components/Right/Right';
-import Bottom from './components/Global/BottomBar';
+import Left from './components/Left';
+import Middle from './components/Middle';
+import Right from './components/Right';
+import Bottom from './components/BottomBar';
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
@@ -78,17 +78,17 @@ const App = () => {
                         <Box display="flex" minWidth="6.3%" maxWidth="35%" style={{ width: leftWidth }}>
                             <Left toggleLeftWidth={toggleLeft} toggleMaxWidth={toggleMax}  />
                         </Box>
-                        <CustomDivider resize={handleLeftResize} />
-                        <Box display="flex" flex="1">
+                        {/* <CustomDivider resize={handleLeftResize} /> */}
+                        <Box display="flex" flex="1" margin="0 8px">
                             <Middle play={play} togglePlay={togglgePlay}/>
                         </Box>
                         {right ? (
                             <Box display="flex" minWidth="20%" maxWidth="30%" style={{ width: rightWidth }}>
-                                <CustomDivider resize={handleRightResize} />
+                                {/* <CustomDivider resize={handleRightResize} /> */}
                                 <Right toggleRightWidth={toggleRight} liked={liked} toggleLiked={toggleLiked} />
                             </Box>
                         ) : (
-                            <Box marginLeft="8px"></Box>
+                            <Box></Box>
                         )}
                     </Box>
                     <Box display="flex" height="12%">
