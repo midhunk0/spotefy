@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, useTheme, ButtonBase, IconButton, InputBase, Link, List, Typography } from '@mui/material';
+import { Box, Button, useTheme, ButtonBase, IconButton, InputBase, Link, List, Typography, Tooltip } from '@mui/material';
 import { HiArrowLeft, HiArrowRight, HiChevronDown, HiChevronUp, HiCollection, HiHome, HiOutlineCollection, HiPlus, HiSearch } from "react-icons/hi";
 import { tokens } from '../theme';
 
@@ -287,13 +287,15 @@ const Left=({ toggleLeftWidth, toggleMaxWidth })=>{
                     <Box overflow="auto">
                         <List disablePadding>
                             {data.map((item, index) => (
-                                <Button key={index} disableRipple sx={listButton}>
-                                    {index === 1 ? (
-                                        <Image src="../../assets/olivia.jpeg" alt="olivia" />
-                                    ) : (
-                                        <Image src="../../assets/liked.png" alt="liked" />
-                                    )}
-                                </Button>
+                                <Tooltip placement="right" title={item} key={index}>
+                                    <Button key={index} disableRipple sx={listButton}>
+                                        {index === 1 ? (
+                                            <Image src="../../assets/olivia.jpeg" alt="olivia" />
+                                            ) : (
+                                            <Image src="../../assets/liked.png" alt="liked" />
+                                        )}
+                                    </Button>
+                                </Tooltip> 
                             ))}
                         </List>
                     </Box>
