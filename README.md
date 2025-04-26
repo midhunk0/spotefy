@@ -1,4 +1,4 @@
-# Spotify Clone
+# Spotefy
 
 ![spotyf](https://github.com/user-attachments/assets/6bc281ec-e6d3-406c-af29-761513fe13bc)
 
@@ -11,11 +11,11 @@ This is a clone of the Spotify web app built using React. It replicates the core
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/midhunk0/spotify_clone.git
+    git clone https://github.com/midhunk0/spotefy.git
     ```
 2. Navigate to the project directory:
     ```sh
-    cd spotify_clone
+    cd spotefy
     ```
 3. Install dependencies:
     ```sh
